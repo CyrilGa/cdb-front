@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputerDetailsComponent implements OnInit {
 
-  
+  @Input computer: Computer;
 
   constructor() { }
 
