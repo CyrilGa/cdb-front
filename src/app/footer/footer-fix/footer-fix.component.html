@@ -1,9 +1,21 @@
-<button (click)="getFirstPage()">First</button>
-<button (click)="getPreviousPage()">-1</button>
-<button>{{currentPage+1}}</button>
-<button (click)="getNextPage()">+1</button>
-<button (click)="getLastPage()">Last</button>
-<button (click)="setNumberOfElements(10)">10</button>
-<button (click)="setNumberOfElements(20)">20</button>
-<button (click)="setNumberOfElements(50)">50</button>
-<button (click)="setNumberOfElements(100)">100</button>
+<mat-grid-list cols="7" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]=6
+    [rowspan]=1>
+    <button mat-stroked-button (click)="getFirstPage()">First</button>
+    <button mat-stroked-button (click)="getPreviousPage()">-1</button>
+    <button mat-stroked-button>{{currentPage+1}}</button>
+    <button mat-stroked-button (click)="getNextPage()">+1</button>
+    <button mat-stroked-button (click)="getLastPage()">Last</button>
+  </mat-grid-tile>
+  <mat-grid-tile
+    [colspan]=1
+    [rowspan]=1>
+    <mat-button-toggle-group>
+      <mat-button-toggle (click)="setNumberOfElements(10)">10</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(20)">20</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(50)">50</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(100)">100</mat-button-toggle>
+    </mat-button-toggle-group>
+  </mat-grid-tile>
+</mat-grid-list>
