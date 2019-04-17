@@ -1,0 +1,29 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.title {
+    text-transform: uppercase;
+    font-size: 36px !important;
+    font-weight: bold !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    text-align: center !important;
+    color: white;
+}
+
+.titleFlow {
+    width: 100px;
+    height: 60px;
+    background-color: black;
+}
+
+.buttons {
+    float: right;
+}
+
+.signup {
+    margin-left: 20px;
+    margin-right: 40px;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
