@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ComputerModule } from './computer/computer.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './header/header.module';
+import {FooterModule} from './footer/footer.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderModule } from './header/header.module';
     AppRoutingModule,
     ComputerModule,
     NoopAnimationsModule,
-    HeaderModule
+    HeaderModule,
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
