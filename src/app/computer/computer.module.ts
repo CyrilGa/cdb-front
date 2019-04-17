@@ -8,10 +8,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
 //import { ComputerFormComponent } from './computer-form/computer-form.component';
+import { ServiceModule } from '../service/service.module';
+
 @NgModule({
   declarations: [
     ComputerListComponent,
-    ComputerDetailsComponent
+    ComputerDetailsComponent,
+    ServiceModule,
     //ComputerFormComponent
   ],
   imports: [
