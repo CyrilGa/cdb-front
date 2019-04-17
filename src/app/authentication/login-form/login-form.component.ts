@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../../service/api.service';
+import {Company} from '../../computer/model/company.model';
 
 @Component({
   selector: 'app-login-form',
@@ -8,10 +9,10 @@ import {ApiService} from '../../service/api.service';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  companies: Company[] = [];
 
-  ngOnInit() {
+  constructor(private apiService: ApiService) { }
 
-  }
+  ngOnInit() {  }
 
 }
