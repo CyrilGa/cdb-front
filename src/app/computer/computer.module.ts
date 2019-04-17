@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComputerListComponent } from './computer-list/computer-list.component';
 import { ComputerComponent } from './computer/computer.component';
+import {FooterModule} from '../footer/footer.module';
 //import { ComputerFormComponent } from './computer-form/computer-form.component';
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { ComputerComponent } from './computer/computer.component';
     //ComputerFormComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FooterModule
   ],
   exports: [
     ComputerListComponent,
