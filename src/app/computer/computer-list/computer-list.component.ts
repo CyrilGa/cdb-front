@@ -111,9 +111,15 @@ export class ComputerListComponent implements OnInit {
     }
   ];
 
+  listComputer: []
+
   constructor() { }
 
   ngOnInit() {
   }
 
+
+  changePage($event) {
+    
+  }
 }

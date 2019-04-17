@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatInputModule } from '@angular/material/input'; 
+import { ServiceModule } from '../service/service.module';
 
 @NgModule({
   declarations: [HeaderRelativeComponent, HeaderFixComponent, HeaderComponent],
@@ -15,7 +16,8 @@ import { MatInputModule } from '@angular/material/input';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    ServiceModule
   ],
   exports: [HeaderComponent]
 })

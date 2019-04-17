@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from './footer.component';
 import { FooterFixComponent } from './footer-fix/footer-fix.component';
 import { FooterRelativeComponent } from './footer-relative/footer-relative.component';
+import { ServiceModule } from '../service/service.module';
 
 @NgModule({
-  declarations: [FooterComponent, FooterFixComponent, FooterRelativeComponent],
+  declarations: [FooterFixComponent, FooterRelativeComponent],
   exports: [
-    FooterComponent
+    FooterFixComponent,
+    FooterRelativeComponent,
+    ServiceModule
   ],
   imports: [
     CommonModule
