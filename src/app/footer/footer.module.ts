@@ -9,7 +9,8 @@ import {MatButtonToggleModule, MatGridListModule} from '@angular/material';
 @NgModule({
   declarations: [FooterFixComponent, FooterRelativeComponent],
   exports: [
-    FooterFixComponent, FooterRelativeComponent
+    FooterFixComponent,
+    FooterRelativeComponent
   ],
   imports: [
     CommonModule,
