@@ -8,7 +8,6 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { HttpClientModule } from '@angular/common/http';
-import { ServiceModule } from './service/service.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { ServiceModule } from './service/service.module';
     NoopAnimationsModule,
     HeaderModule,
     FooterModule,
-    HttpClientModule,
-    ServiceModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

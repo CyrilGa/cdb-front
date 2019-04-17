@@ -1,12 +1,22 @@
 <footer>
-  <ul>
-    <li>Rémi</li>
-    <li>Clément</li>
-    <li>Mathéo</li>
-  </ul>
-  <ul>
-    <li>Bertrand</li>
-    <li>Cyril</li>
-  </ul>
+  <mat-grid-list cols="2" rowHeight="100px">
+    <mat-grid-tile
+      [colspan]=1
+      [rowspan]=1>
+      <ul>
+        <li>Rémi</li>
+        <li>Clément</li>
+        <li>Mathéo</li>
+      </ul>
+    </mat-grid-tile>
+    <mat-grid-tile
+      [colspan]=1
+      [rowspan]=1>
+    <ul>
+      <li>Bertrand</li>
+      <li>Cyril</li>
+    </ul>
+    </mat-grid-tile>
+  </mat-grid-list>
   Copyrigth tous les droits sont reservés
 </footer>
