@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ComputerComponent} from '../computer/computer.component';
 
 @Component({
   selector: 'app-computer-list',
