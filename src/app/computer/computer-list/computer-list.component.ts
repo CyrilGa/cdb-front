@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Computer} from '../model/computer.model';
+import {ApiService} from '../../service/api.service';
 
 @Component({
   selector: 'app-computer-list',
@@ -114,13 +115,16 @@ export class ComputerListComponent implements OnInit {
 
   listComputer: Computer[];
 
-  constructor() { }
+  constructor(private service: ApiService) { }
 
   ngOnInit() {
   }
 
 
   changePage($event) {
-    
+    this.service.getComputers($event).subscribe(
+      () => console.log('service'),
+      error => console.log(error)
+    );
   }
 }
