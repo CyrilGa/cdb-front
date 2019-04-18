@@ -9,8 +9,6 @@ import {Company} from '../../computer/model/company.model';
 })
 export class LoginFormComponent implements OnInit {
 
-  companies: Company[] = [];
-
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {  }

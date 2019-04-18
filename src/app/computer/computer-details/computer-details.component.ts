@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Computer} from '../model/computer.model';
 
 @Component({
   selector: 'app-computer-details',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComputerDetailsComponent implements OnInit {
 
-  
+  // @Input computer: Computer;
 
   constructor() { }
 

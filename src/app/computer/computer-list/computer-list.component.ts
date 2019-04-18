@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Computer} from '../model/computer.model';
 
 @Component({
   selector: 'app-computer-list',
@@ -111,7 +112,7 @@ export class ComputerListComponent implements OnInit {
     }
   ];
 
-  listComputer: []
+  listComputer: Computer[];
 
   constructor() { }
 
