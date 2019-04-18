@@ -1,7 +1,2 @@
-<div class="computer" *ngFor="let computer of computers">
-  <div class="computer-item">{{ computer.name }}</div>
-  <div class="computer-item">{{ computer.introduced }}</div>
-  <div class="computer-item">{{ computer.discontinued }}</div>
-  <div class="computer-item">{{ computer.companyDTO.name }}</div>
-</div>
+<app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer"></app-computer-details>
 <app-footer-fix (pagination)="changePage($event)"></app-footer-fix>
