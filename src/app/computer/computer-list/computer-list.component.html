@@ -1,2 +1,16 @@
+<mat-grid-list cols="5" rowHeight="30px">
+  <mat-grid-tile [colspan]=1 [rowspan]=1>
+    <span>computer name</span>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=1 [rowspan]=1>
+    <span>introduced date</span>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=1 [rowspan]=1>
+    <span>discontinued date</span>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]=1 [rowspan]=1>
+    <span>company name</span>
+  </mat-grid-tile>
+</mat-grid-list>
 <app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
 <app-footer-fix (pagination)="changePage($event)"></app-footer-fix>

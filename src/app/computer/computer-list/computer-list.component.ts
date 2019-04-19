@@ -127,16 +127,12 @@ export class ComputerListComponent implements OnInit {
         console.log(error);
       }
     );
-    this.Mock.forEach(element => {
-      this.computers.push(element);
-      console.log(element);
-    });
   }
 
 
   changePage($event) {
     this.api.getComputers($event).subscribe(
-      () => console.log('service'),
+      result => this.computers = result,
       error => console.log(error)
     );
   }

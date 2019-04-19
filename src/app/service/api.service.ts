@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  COMPUTER_API_URL = 'http://localhost:8080/cdb/api/v1/computer';
+  COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
   COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/company';
   private LOGIN_URL = 'http://localhost:8080/cdb/login';
 
