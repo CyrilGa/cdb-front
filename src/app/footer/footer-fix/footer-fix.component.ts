@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-footer-fix',
@@ -7,10 +7,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class FooterFixComponent implements OnInit {
 
+  @Input() maxPage: number;
+
   @Output() pagination = new EventEmitter();
 
   currentPage: number;
-  maxPage: number;
   numberOfElements: number;
 
   constructor() {

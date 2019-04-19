@@ -115,13 +115,14 @@ export class ComputerListComponent implements OnInit {
   ];
 
   computers: Computer[] = [];
+  maxPage: number;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
     this.api.getComputers({}).subscribe(
       (rslt) => {
-        this.computers = rslt;
+        this.computers = rslt.body;
       },
       (error) => {
         console.log(error);
@@ -132,7 +133,9 @@ export class ComputerListComponent implements OnInit {
 
   changePage($event) {
     this.api.getComputers($event).subscribe(
-      result => this.computers = result,
+      result => {this.computers = result.body;
+                 console.log(result.headers.get('MaxPageId'));
+                 this.maxPage = +result.headers.get('MaxPageId'); },
       error => console.log(error)
     );
   }
