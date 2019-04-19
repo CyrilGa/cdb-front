@@ -12,8 +12,9 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
-  COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/company';
+  // COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
+  COMPUTER_API_URL = 'http://localhost:8080/cdb/api/v1/computers';
+  COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/companies';
   private LOGIN_URL = 'http://localhost:8080/cdb/login';
 
   getComputers(params): Observable<Computer[]> {

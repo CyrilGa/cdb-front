@@ -119,14 +119,18 @@ export class ComputerListComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getComputers({}).subscribe(
-      (rslt) => {
-        this.computers = rslt;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // this.api.getComputers({}).subscribe(
+    //   (rslt) => {
+    //     this.computers = rslt;
+    //   },
+    //   (error) => {
+    //     console.log(error);
+    //   }
+    // );
+
+    this.Mock.forEach(
+      computer => this.computers.push(computer)
+    )
   }
 
 
