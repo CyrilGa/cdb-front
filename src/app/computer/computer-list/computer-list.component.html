@@ -1,2 +1,4 @@
-<app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer"></app-computer-details>
+<div id="computers">
+    <app-computer-details *ngFor="let computer of computers" [computer] = "computer"></app-computer-details>
+</div>
 <app-footer-fix (pagination)="changePage($event)"></app-footer-fix>

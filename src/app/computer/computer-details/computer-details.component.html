@@ -1,8 +1,8 @@
 <div id="container">
-  <span>computer.computerName</span>
-  <span>computer.introduced</span>
-  <span>computer.discontinued</span>
-  <span>computer.companyName</span>
+  <div class="inner-container">{{computer.name}}</div>
+  <div class="inner-container">{{computer.introduced}}</div>
+  <div class="inner-container">{{computer.discontinued}}</div>
+  <div class="inner-container">{{computer.companyDTO.name}}</div>
   <div id="container-button">
     <button mat-raised-button>Edit</button>
     <button mat-raised-button (click)="deleteComputer()">Delete</button>
