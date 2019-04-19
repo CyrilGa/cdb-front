@@ -3,24 +3,21 @@ import { CommonModule } from '@angular/common';
 import { ComputerListComponent } from './computer-list/computer-list.component';
 import { ComputerDetailsComponent } from './computer-details/computer-details.component';
 import { FooterModule } from '../footer/footer.module';
-//import { ComputerFormComponent } from './computer-form/computer-form.component';
-import { ServiceModule } from '../service/service.module';
+import { CustomMaterialModule } from '../custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
     ComputerListComponent,
-    ComputerDetailsComponent,
-    //ServiceModule,
-    //ComputerFormComponent
+    ComputerDetailsComponent
   ],
   imports: [
     CommonModule,
-    FooterModule
+    FooterModule,
+    CustomMaterialModule
   ],
   exports: [
     ComputerListComponent,
-    ComputerDetailsComponent,
-    //ComputerFormComponent
+    ComputerDetailsComponent
   ]
 })
 export class ComputerModule { }

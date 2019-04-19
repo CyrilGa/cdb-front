@@ -15,6 +15,7 @@ export class FooterFixComponent implements OnInit {
 
   constructor() {
     this.currentPage = 0;
+    this.numberOfElements = 10;
   }
 
   ngOnInit() {
