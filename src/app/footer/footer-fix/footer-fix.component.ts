@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
 
 @Component({
   selector: 'app-footer-fix',
@@ -7,10 +7,11 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class FooterFixComponent implements OnInit {
 
+  @Input() maxPage: number;
+
   @Output() pagination = new EventEmitter();
 
   currentPage: number;
-  maxPage: number;
   numberOfElements: number;
 
   constructor() {
@@ -21,32 +22,37 @@ export class FooterFixComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendPagination(dPage: number) {
+  sendPagination() {
     this.pagination.emit({
       numberOfElements: this.numberOfElements,
-      desiredPage: dPage
+      desiredPage: this.currentPage
     });
   }
 
   getFirstPage() {
-    this.sendPagination(0);
+    this.currentPage = 0;
+    this.sendPagination();
   }
 
   getLastPage() {
-    this.sendPagination(this.maxPage);
+    this.currentPage = this.maxPage;
+    this.sendPagination();
   }
 
   getPreviousPage() {
-    this.sendPagination(this.currentPage === 0 ? 0 : this.currentPage - 1);
+    this.currentPage = this.currentPage === 0 ? 0 : this.currentPage - 1;
+    this.sendPagination();
   }
 
   getNextPage() {
-    this.sendPagination(this.currentPage === this.maxPage ? this.maxPage : this.currentPage + 1);
+    this.currentPage = this.currentPage === this.maxPage ? this.maxPage : this.currentPage + 1;
+    this.sendPagination();
   }
 
   setNumberOfElements(elements: number) {
     this.numberOfElements = elements;
-    this.sendPagination(0);
+    this.currentPage = 0;
+    this.sendPagination();
   }
 
 }
