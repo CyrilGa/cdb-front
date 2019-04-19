@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input } from '@angular/core';
+import {Computer} from '../model/computer.model';
 
 @Component({
   selector: 'app-computer-details',
   templateUrl: './computer-details.component.html',
   styleUrls: ['./computer-details.component.scss']
 })
-export class ComputerDetailsComponent implements OnInit {
+export class ComputerDetailsComponent{
 
-  @Input computer: Computer;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input()
+  computer: Computer;
 
   deleteComputer(computer) {
 

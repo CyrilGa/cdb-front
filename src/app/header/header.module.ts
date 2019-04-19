@@ -4,10 +4,9 @@ import { HeaderRelativeComponent } from './header-relative/header-relative.compo
 import { HeaderFixComponent } from './header-fix/header-fix.component';
 import { HeaderComponent } from './header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar'; 
-import { MatButtonModule } from '@angular/material/button'; 
-import { MatInputModule } from '@angular/material/input'; 
-import { ServiceModule } from '../service/service.module';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [HeaderRelativeComponent, HeaderFixComponent, HeaderComponent],
@@ -16,8 +15,7 @@ import { ServiceModule } from '../service/service.module';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatInputModule,
-    ServiceModule
+    MatInputModule
   ],
   exports: [HeaderComponent]
 })

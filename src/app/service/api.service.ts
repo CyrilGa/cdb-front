@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Computer } from '../computer/model/computer.model';
 import { Company } from '../computer/model/company.model';
+import { Credentials } from '../authentication/model/credentials.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class ApiService {
 
   COMPUTER_API_URL = 'http://localhost:8080/cdb/api/v1/computer';
   COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/company';
+  private LOGIN_URL = 'http://localhost:8080/cdb/login';
 
   getComputers(params): Observable<Computer[]> {
     let finalUrl = this.COMPUTER_API_URL + '?';
@@ -45,5 +47,12 @@ export class ApiService {
 
   getCompanies(): Observable<Company[]> {
     return this.http.get<Company[]>(this.COMPANY_API_URL);
+  }
+
+  login(username: string, password: string): Observable<string> {
+    const credentials = new Credentials();
+    credentials.username = username;
+    credentials.password = password;
+    return this.http.post<string>(this.LOGIN_URL, credentials);
   }
 }

@@ -7,15 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 
-//import { ComputerFormComponent } from './computer-form/computer-form.component';
-import { ServiceModule } from '../service/service.module';
-
 @NgModule({
   declarations: [
     ComputerListComponent,
-    ComputerDetailsComponent,
-    ServiceModule,
-    //ComputerFormComponent
+    ComputerDetailsComponent
   ],
   imports: [
     CommonModule,
@@ -26,8 +21,7 @@ import { ServiceModule } from '../service/service.module';
   ],
   exports: [
     ComputerListComponent,
-    ComputerDetailsComponent,
-    //ComputerFormComponent
+    ComputerDetailsComponent
   ]
 })
 export class ComputerModule { }

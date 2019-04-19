@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ApiService } from './api.service';
+import {LoginFormComponent} from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
-    ApiService
+    LoginFormComponent
   ],
   imports: [
     CommonModule
   ],
-  exports: [
-    ApiService
+  exports : [
+    LoginFormComponent
   ]
 })
-export class ServiceModule { }
+export class AuthenticationModule { }
