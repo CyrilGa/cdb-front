@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import { ApiService } from '../../service/api.service';
 
 @Component({
@@ -7,9 +7,17 @@ import { ApiService } from '../../service/api.service';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+  username = '';
+  password = '';
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {  }
+
+  login() {
+    this.apiService.getCompanies().subscribe((response) => console.log(response));
+
+    this.apiService.login(this.username, this.password).subscribe((response) => console.log(response));
+  }
 
 }

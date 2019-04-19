@@ -1,13 +1,16 @@
-<form>
-  <mat-form-field class="example-full-width">
-    <mat-label>First name</mat-label>
-    <input matInput>
-    <mat-hint>Autofilled!</mat-hint>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Last name</mat-label>
-    <input matInput>
-    <mat-hint>Autofilled!</mat-hint>
-  </mat-form-field>
-  <button mat-raised-button>Submit</button>
-</form>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="login()">
+      <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput name="username" [(ngModel)]="username">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" [(ngModel)]="password">
+      </mat-form-field>
+      <button mat-button>Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>
