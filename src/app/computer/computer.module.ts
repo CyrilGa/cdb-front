@@ -10,7 +10,7 @@ import { ServiceModule } from '../service/service.module';
   declarations: [
     ComputerListComponent,
     ComputerDetailsComponent,
-    ServiceModule,
+    //ServiceModule,
     //ComputerFormComponent
   ],
   imports: [
