@@ -24,6 +24,12 @@ export class ApiService {
     if (params.desiredPage) {
       finalUrl += 'numPage=' + params.desiredPage + '&';
     }
+    if (params.sortName) {
+      finalUrl += 'orderAttribute=' + params.sortName + '&';
+    }
+    if (params.sortType) {
+      finalUrl += 'orderType=' + params.isAsc + '&';
+    }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);
     return this.http.get<Computer[]>(finalUrl, { observe: 'response' });
