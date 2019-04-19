@@ -115,28 +115,27 @@ export class ComputerListComponent implements OnInit {
   ];
 
   computers: Computer[] = [];
+  maxPage: number;
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    // this.api.getComputers({}).subscribe(
-    //   (rslt) => {
-    //     this.computers = rslt;
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
-
-    this.Mock.forEach(
-      computer => this.computers.push(computer)
-    )
+    this.api.getComputers({}).subscribe(
+      (rslt) => {
+        this.computers = rslt.body;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 
   changePage($event) {
     this.api.getComputers($event).subscribe(
-      result => this.computers = result,
+      result => {this.computers = result.body;
+                 console.log(result.headers.get('MaxPageId'));
+                 this.maxPage = +result.headers.get('MaxPageId'); },
       error => console.log(error)
     );
   }

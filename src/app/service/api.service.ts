@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Computer } from '../computer/model/computer.model';
 import { Company } from '../computer/model/company.model';
@@ -12,12 +12,11 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
-  COMPUTER_API_URL = 'http://localhost:8080/cdb/api/v1/computers';
   COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/companies';
-  private LOGIN_URL = 'http://localhost:8080/cdb/login';
+  COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
+  LOGIN_URL = 'http://localhost:8080/cdb/login';
 
-  getComputers(params): Observable<Computer[]> {
+  getComputers(params): Observable<HttpResponse<Computer[]>> {
     let finalUrl = this.COMPUTER_API_URL + '?';
     if (params.numberOfElements) {
       finalUrl += 'nbElements=' + params.numberOfElements + '&';
@@ -27,7 +26,7 @@ export class ApiService {
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);
-    return this.http.get<Computer[]>(finalUrl);
+    return this.http.get<Computer[]>(finalUrl, { observe: 'response' });
   }
 
   getComputer(id: number): Observable<Computer> {

@@ -15,4 +15,4 @@
 <div id="computers">
     <app-computer-details *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
 </div>
-<app-footer-fix (pagination)="changePage($event)"></app-footer-fix>
+<app-footer-fix [maxPage]="maxPage" (pagination)="changePage($event)"></app-footer-fix>
