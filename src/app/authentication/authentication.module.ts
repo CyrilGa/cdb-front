@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
-import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {CustomMaterialModule} from '../custom-material/custom-material.module';
 
 @NgModule({
   declarations: [
@@ -9,9 +9,7 @@ import { MatButtonModule, MatFormFieldModule, MatInputModule } from '@angular/ma
   ],
   imports: [
     CommonModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule
+    CustomMaterialModule
   ],
   exports: [
     LoginFormComponent
