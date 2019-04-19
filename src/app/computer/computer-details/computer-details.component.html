@@ -1,3 +1,13 @@
+<div id="container">
+  <div class="inner-container">{{computer.name}}</div>
+  <div class="inner-container">{{computer.introduced}}</div>
+  <div class="inner-container">{{computer.discontinued}}</div>
+  <div class="inner-container">{{computer.companyDTO.name}}</div>
+  <div id="container-button">
+    <button mat-raised-button>Edit</button>
+    <button mat-raised-button (click)="deleteComputer()">Delete</button>
+  </div>
+</div>
 <mat-grid-list id="container" cols="5" rowHeight="50px">
     <mat-grid-tile [colspan]=1 [rowspan]=1>
       <span>{{computer.name}}</span>

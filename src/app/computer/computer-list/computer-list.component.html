@@ -1,3 +1,4 @@
+
 <mat-grid-list cols="5" rowHeight="30px">
   <mat-grid-tile [colspan]=1 [rowspan]=1>
     <span>computer name</span>
@@ -12,5 +13,7 @@
     <span>company name</span>
   </mat-grid-tile>
 </mat-grid-list>
-<app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
+<div id="computers">
+    <app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
+</div>
 <app-footer-fix [maxPage]="maxPage" (pagination)="changePage($event)"></app-footer-fix>

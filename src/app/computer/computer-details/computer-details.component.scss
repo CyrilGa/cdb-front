@@ -1,14 +1,13 @@
 #container{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: baseline;
     
-    border: 2px solid rgb(100, 100, 100);
+    background-color: inherit;
     border-radius: 5px;
     padding: 8px 10px;
     margin: 10px 10px;
-    background-color: rgb(100, 100, 100);
 }
 
 #container-button :nth-child(n){
@@ -17,7 +16,7 @@
 }
 
 span{
-    color: white;
+    color: black;
     font-size: 1.05em;
     font-weight: 500;
 }
