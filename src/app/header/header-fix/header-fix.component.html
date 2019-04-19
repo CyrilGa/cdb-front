@@ -1,0 +1,23 @@
+<div id="header-fix-component">
+
+    <div class="fixed">
+        <button style="margin-left: 40px;margin-right:10px;" mat-mini-fab color="accent"><i class="material-icons">search</i></button>
+        <input class="search" value="search">  
+    </div>
+
+    <div class="sortSelection">
+        <button style="margin-right: 30px;" mat-mini-fab color="accent"><i class="material-icons">swap_vert</i></button>
+
+        <mat-form-field style="margin-right: 30px;">
+            <mat-label style="color: white;">Selection</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let sortChoice of sorts" [value]="sort.value">
+                {{sortChoice.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-slide-toggle style="color:white;">ASC</mat-slide-toggle>
+    </div>
+    
+</div>
