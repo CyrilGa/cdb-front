@@ -12,7 +12,7 @@
       <span>Welcome, User !</span>
     </div>
     <ng-template class="buttons" #elseBlock>
-        <button class="login" mat-raised-button color="primary">Login</button>
+        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
         <button class="signup" mat-raised-button color="accent">Signup</button>
     </ng-template>
 
