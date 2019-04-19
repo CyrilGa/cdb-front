@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderRelativeComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    let isLogged: boolean = false;
   }
 
 }

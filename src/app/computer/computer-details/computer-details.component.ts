@@ -1,4 +1,4 @@
-import {Component, Input } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Computer} from '../model/computer.model';
 
 @Component({
@@ -6,13 +6,15 @@ import {Computer} from '../model/computer.model';
   templateUrl: './computer-details.component.html',
   styleUrls: ['./computer-details.component.scss']
 })
-export class ComputerDetailsComponent{
+export class ComputerDetailsComponent {
 
   @Input()
   computer: Computer;
 
-  deleteComputer(computer) {
+  @Output() deleteComputer = new EventEmitter();
 
+  delete() {
+    this.deleteComputer.emit(this.computer.id);
   }
 
 }

@@ -8,10 +8,13 @@
 
     <h1 class="title">COMPUTER DATABASE</h1>
 
-    <div class="buttons">
+    <div *ngIf="false; else elseBlock" style="margin-right: 25px;" class="logged">
+      <span>Welcome, User !</span>
+    </div>
+    <ng-template class="buttons" #elseBlock>
         <button class="login" mat-raised-button color="primary">Login</button>
         <button class="signup" mat-raised-button color="accent">Signup</button>
-    </div>
+    </ng-template>
 
   </mat-toolbar>
 

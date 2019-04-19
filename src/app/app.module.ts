@@ -3,11 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComputerModule } from './computer/computer.module';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthenticationModule } from './authentication/authentication.module';
+import {ComputerModule} from './computer/computer.module';
+import {AuthenticationModule} from './authentication/authentication.module';
 
 @NgModule({
   declarations: [
@@ -16,10 +16,10 @@ import { AuthenticationModule } from './authentication/authentication.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ComputerModule,
     HeaderModule,
     FooterModule,
     HttpClientModule,
+    ComputerModule,
     AuthenticationModule
   ],
   providers: [],

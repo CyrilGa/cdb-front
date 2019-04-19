@@ -12,12 +12,21 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private COMPUTER_API_URL = 'http://localhost:8080/cdb/api/v1/computers';
-  private COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/companies';
+  COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
+  COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/company';
   private LOGIN_URL = 'http://localhost:8080/cdb/login';
 
-  getComputers(): Observable<Computer[]> {
-    return this.http.get<Computer[]>(this.COMPUTER_API_URL);
+  getComputers(params): Observable<Computer[]> {
+    let finalUrl = this.COMPUTER_API_URL + '?';
+    if (params.numberOfElements) {
+      finalUrl += 'nbElements=' + params.numberOfElements + '&';
+    }
+    if (params.desiredPage) {
+      finalUrl += 'numPage=' + params.desiredPage + '&';
+    }
+    finalUrl = finalUrl.substring(0, finalUrl.length - 1);
+    console.log(finalUrl);
+    return this.http.get<Computer[]>(finalUrl);
   }
 
   getComputer(id: number): Observable<Computer> {
