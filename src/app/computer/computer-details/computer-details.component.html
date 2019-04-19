@@ -1,10 +1,28 @@
 <div id="container">
-  <span>{{computer.name}}</span>
-  <span>{{computer.introduced}}</span>
-  <span>{{computer.discontinued}}</span>
-  <span>{{computer.company.name}}</span>
+  <div class="inner-container">{{computer.name}}</div>
+  <div class="inner-container">{{computer.introduced}}</div>
+  <div class="inner-container">{{computer.discontinued}}</div>
+  <div class="inner-container">{{computer.companyDTO.name}}</div>
   <div id="container-button">
     <button mat-raised-button>Edit</button>
-    <button mat-raised-button (click)="delete()">Delete</button>
+    <button mat-raised-button (click)="deleteComputer()">Delete</button>
   </div>
 </div>
+<mat-grid-list id="container" cols="5" rowHeight="50px">
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <span>{{computer.name}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <span>{{computer.introduced}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <span>{{computer.discontinued}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]=1 [rowspan]=1>
+      <span>{{computer.company.name}}</span>
+    </mat-grid-tile>
+    <mat-grid-tile id="container-button" [colspan]=1 [rowspan]=1>
+        <button mat-raised-button>Edit</button>
+        <button mat-raised-button (click)="delete()">Delete</button>
+    </mat-grid-tile>
+</mat-grid-list>
