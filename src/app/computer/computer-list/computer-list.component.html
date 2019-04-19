@@ -1,2 +1,2 @@
-<app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer"></app-computer-details>
+<app-computer-details class="computer" *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
 <app-footer-fix (pagination)="changePage($event)"></app-footer-fix>

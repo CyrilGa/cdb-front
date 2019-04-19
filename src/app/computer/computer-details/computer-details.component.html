@@ -1,10 +1,10 @@
 <div id="container">
-  <span>computer.computerName</span>
-  <span>computer.introduced</span>
-  <span>computer.discontinued</span>
-  <span>computer.companyName</span>
+  <span>{{computer.name}}</span>
+  <span>{{computer.introduced}}</span>
+  <span>{{computer.discontinued}}</span>
+  <span>{{computer.company.name}}</span>
   <div id="container-button">
     <button mat-raised-button>Edit</button>
-    <button mat-raised-button (click)="deleteComputer()">Delete</button>
+    <button mat-raised-button (click)="delete()">Delete</button>
   </div>
 </div>

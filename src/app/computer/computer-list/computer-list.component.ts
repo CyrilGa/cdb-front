@@ -13,121 +13,120 @@ export class ComputerListComponent implements OnInit {
 
   Mock = [
     {
-        id: '18',
+        id: 18,
         name: 'COSMAC ELF',
         introduced: '',
         discontinued: '',
-        companyDTO: {
-            id: '3',
+        company: {
+            id: 3,
             name: 'RCA'
         }
     },
     {
-        id: '19',
+        id: 19,
         name: 'COSM',
         introduced: '1977-01-02 01:00',
         discontinued: '',
-        companyDTO: {
-            id: '3',
+        company: {
+            id: 3,
             name: 'RCA'
         }
     },
     {
-        id: '20',
+        id: 20,
         name: 'ELF II',
         introduced: '1977-01-01 01:00',
         discontinued: '',
-        companyDTO: {
-            id: '4',
+        company: {
+            id: 4,
             name: 'Netronics'
         }
     },
     {
-        id: '22',
+        id: 22,
         name: 'Macintosh II',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '24',
+        id: 24,
         name: 'Macintosh IIfx',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '30',
+        id: 30,
         name: 'Xserve',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '31',
+        id: 31,
         name: 'Powerbook 100',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '32',
+        id: 32,
         name: 'Powerbook 140',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '33',
+        id: 33,
         name: 'Powerbook 170',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     },
     {
-        id: '34',
+        id: 34,
         name: 'PowerBook Duo',
         introduced: '',
         discontinued: '',
-        companyDTO: {
+        company: {
             id: null,
             name: null
         }
     }
   ];
 
-  listComputer: Computer[] = [];
-  computers = [];
+  computers: Computer[] = [];
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    /*this.api.getComputers().subscribe(
+    this.api.getComputers({}).subscribe(
       (rslt) => {
-        this.listComputer = rslt;
+        this.computers = rslt;
       },
       (error) => {
         console.log(error);
       }
-    );*/
+    );
     this.Mock.forEach(element => {
       this.computers.push(element);
       console.log(element);
@@ -137,6 +136,13 @@ export class ComputerListComponent implements OnInit {
 
   changePage($event) {
     this.api.getComputers($event).subscribe(
+      () => console.log('service'),
+      error => console.log(error)
+    );
+  }
+
+  deleteComputer($event) {
+    this.api.deleteComputer($event).subscribe(
       () => console.log('service'),
       error => console.log(error)
     );
