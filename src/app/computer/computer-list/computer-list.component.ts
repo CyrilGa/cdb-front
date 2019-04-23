@@ -116,6 +116,7 @@ export class ComputerListComponent implements OnInit {
 
   computers: Computer[] = [];
   maxPage: number;
+  searchName: string;
 
   constructor(private api: ApiService) { }
 
