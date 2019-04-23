@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpResponse} from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Computer } from '../computer/model/computer.model';
 import { Company } from '../computer/model/company.model';
@@ -12,7 +12,7 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  COMPANY_API_URL = 'http://localhost:8080/cdb/api/v1/companies';
+  COMPANY_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/companies';
   COMPUTER_API_URL = 'http://10.0.1.13:8080/cdb/api/v1/computers';
   LOGIN_URL = 'http://localhost:8080/cdb/login';
 
@@ -23,6 +23,12 @@ export class ApiService {
     }
     if (params.desiredPage) {
       finalUrl += 'numPage=' + params.desiredPage + '&';
+    }
+    if (params.sortName) {
+      finalUrl += 'orderAttribute=' + params.sortName + '&';
+    }
+    if (params.sortType) {
+      finalUrl += 'orderType=' + params.sortType + '&';
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);
