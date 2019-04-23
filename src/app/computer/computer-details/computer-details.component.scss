@@ -1,6 +1,7 @@
 .container-panel{
     margin: 0 10%;
     background-color: inherit;
+    pointer-events: none;
 }
 
 .container-header{
@@ -19,12 +20,33 @@
     align-self: baseline;
 }
 
-// #container-button :nth-child(n){
-//     margin: 0 10px;
-// }
+.container-table-row button{
+    pointer-events: all;
+}
 
 span{
     color: black;
     font-size: 1.05em;
     font-weight: 500;
+}
+
+.container-body{
+    display: flex;
+    flex-direction: column;
+    pointer-events: all;
+}
+
+.container-form-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-dateTime :nth-child(1){
+    padding-right: 5px;
+}
+
+.container-dateTime :nth-child(2){
+    padding-left: 5px;
 }
