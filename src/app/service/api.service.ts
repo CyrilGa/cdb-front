@@ -1,20 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Computer } from '../computer/model/computer.model';
-import { Company } from '../computer/model/company.model';
-import { Credentials } from '../authentication/model/credentials.model';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpResponse} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {Computer} from '../computer/model/computer.model';
+import {Company} from '../computer/model/company.model';
+import {Credentials} from '../authentication/model/credentials.model';
+import {JwtToken} from '../authentication/model/jwt-token.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  COMPANY_API_URL = 'http://10.0.1.42:8080/cdb/api/v1/companies';
-  COMPUTER_API_URL = 'http://10.0.1.42:8080/cdb/api/v1/computers';
-  LOGIN_URL = 'http://localhost:8080/cdb/login';
+  API_BASE_URL = 'http://localhost:8080/cdb/api/v1';
+  COMPANY_API_URL = this.API_BASE_URL + '/companies';
+  COMPUTER_API_URL = this.API_BASE_URL + '/computers';
+  SIGNIN_URL = this.API_BASE_URL + '/users/signin';
+  REGISTER_URL = this.API_BASE_URL + '/users/register';
 
   getComputers(params): Observable<HttpResponse<Computer[]>> {
     let finalUrl = this.COMPUTER_API_URL + '?';
@@ -32,7 +36,7 @@ export class ApiService {
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);
-    return this.http.get<Computer[]>(finalUrl, { observe: 'response' });
+    return this.http.get<Computer[]>(finalUrl, {observe: 'response'});
   }
 
   getComputer(id: number): Observable<Computer> {
@@ -55,10 +59,10 @@ export class ApiService {
     return this.http.get<Company[]>(this.COMPANY_API_URL);
   }
 
-  login(username: string, password: string): Observable<string> {
+  login(username: string, password: string): Observable<JwtToken> {
     const credentials = new Credentials();
     credentials.username = username;
     credentials.password = password;
-    return this.http.post<string>(this.LOGIN_URL, credentials);
+    return this.http.post<JwtToken>(this.SIGNIN_URL, credentials);
   }
 }
