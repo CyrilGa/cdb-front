@@ -11,7 +11,7 @@ import {SessionService} from '../authentication/session.service';
   providedIn: 'root'
 })
 export class ApiService {
-  API_BASE_URL = 'http://localhost:8080/cdb/api/v1';
+  API_BASE_URL = 'http://10.0.1.42:8080/cdb/api/v1';
   COMPANY_API_URL = this.API_BASE_URL + '/companies';
   COMPUTER_API_URL = this.API_BASE_URL + '/computers';
   SIGNIN_URL = this.API_BASE_URL + '/users/signin';
