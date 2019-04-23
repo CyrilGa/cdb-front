@@ -9,17 +9,21 @@
   <div *ngIf="false; else elseBlock" class="logged">
     <span>Welcome, User !</span>
   </div>
-  <ng-template class="buttons" #elseBlock>
-    <div class="container-button">
+
+  <div>
+    
+    <ng-template class="buttons" #elseBlock>
+      <div class="container-button">
+        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
+        <button class="signup" mat-raised-button color="accent">Signup</button>
+      </div>
+    </ng-template>
+
+    <ng-template class="buttons" #elseBlock>
       <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
-      <button class="signup" mat-raised-button color="accent">Signup</button>
-    </div>
-  </ng-template>
+      <button class="goToSignUp()" mat-raised-button color="accent">Signup</button>
+    </ng-template>
 
-  <ng-template class="buttons" #elseBlock>
-    <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
-    <button class="goToSignUp()" mat-raised-button color="accent">Signup</button>
-  </ng-template>
-
+  </div>
 
 </div>
