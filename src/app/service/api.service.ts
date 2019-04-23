@@ -4,7 +4,7 @@ import {Observable} from 'rxjs';
 import {Computer} from '../computer/model/computer.model';
 import {Company} from '../computer/model/company.model';
 import {Credentials} from '../authentication/model/credentials.model';
-import {JwtToken} from "../authentication/model/jwt-token.model";
+import {JwtToken} from '../authentication/model/jwt-token.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,6 @@ export class ApiService {
   }
 
   API_BASE_URL = 'http://localhost:8080/cdb/api/v1';
-
   COMPANY_API_URL = this.API_BASE_URL + '/companies';
   COMPUTER_API_URL = this.API_BASE_URL + '/computers';
   SIGNIN_URL = this.API_BASE_URL + '/users/signin';
@@ -28,6 +27,15 @@ export class ApiService {
     }
     if (params.desiredPage) {
       finalUrl += 'numPage=' + params.desiredPage + '&';
+    }
+    if (params.sortName) {
+      finalUrl += 'orderAttribute=' + params.sortName + '&';
+    }
+    if (params.sortType) {
+      finalUrl += 'orderType=' + params.sortType + '&';
+    }
+    if (params.searchName) {
+      finalUrl += 'computerName=' + params.searchName + '&';
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);

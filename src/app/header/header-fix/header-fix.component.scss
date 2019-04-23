@@ -1,3 +1,7 @@
+$orange-cdb: #f05a26;
+$light-orange-cdb: #f56d3f;
+$grey-cdb: #151515;
+
 #header-fix-component {
     height: 70px;
     background-color: #4b4c4c;
@@ -15,3 +19,6 @@
     float: right;
 }
 
+.fixed button, .sortSelection button{
+    background-color: $light-orange-cdb;
+}

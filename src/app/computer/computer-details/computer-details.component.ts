@@ -8,10 +8,25 @@ import {Computer} from '../model/computer.model';
 })
 export class ComputerDetailsComponent {
 
+  isEdit = false;
+  introducedDate: string;
+  discontinuedDate: string;
+  introducedHour: string;
+  discontinuedHour: string;
+
   @Input()
   computer: Computer;
 
   @Output() deleteComputer = new EventEmitter();
+
+  onEdit(computer: Computer): void {
+    this.isEdit = !this.isEdit;
+    this.introducedDate = computer.introduced.substring(0,10);
+    this.discontinuedDate = computer.discontinued.substring(0,10);
+    this.introducedHour = computer.introduced.substring(11);
+    this.discontinuedHour = computer.discontinued.substring(11);
+    console.log(this.introducedHour);
+  }
 
   delete() {
     this.deleteComputer.emit(this.computer.id);
