@@ -30,6 +30,9 @@ export class ApiService {
     if (params.sortType) {
       finalUrl += 'orderType=' + params.sortType + '&';
     }
+    if (params.searchName) {
+      finalUrl += 'computerName=' + params.searchName + '&';
+    }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
     console.log(finalUrl);
     return this.http.get<Computer[]>(finalUrl, { observe: 'response' });
