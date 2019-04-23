@@ -12,6 +12,7 @@ export class HeaderFixComponent implements OnInit {
 
   sortName: string;
   isAsc: boolean;
+  searchName: string;
 
   constructor() { }
 
@@ -21,6 +22,12 @@ export class HeaderFixComponent implements OnInit {
 
   toggleAsc() {
     this.isAsc = !this.isAsc;
+  }
+
+  doSearch() {
+    this.sort.emit({
+      searchName: this.searchName
+    });
   }
 
   doSort() {
