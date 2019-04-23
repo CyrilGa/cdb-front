@@ -24,11 +24,8 @@ export class ApiService {
     if (params.desiredPage) {
       finalUrl += 'numPage=' + params.desiredPage + '&';
     }
-    if (params.sortName) {
-      finalUrl += 'orderAttribute=' + params.sortName + '&';
-    }
-    if (params.sortType) {
-      finalUrl += 'orderType=' + params.sortType + '&';
+    if (params.sort) {
+      finalUrl += 'orderAttribute=' + params.sort.sortName + '&' + 'orderType=' + params.sort.sortType + '&';
     }
     if (params.searchName) {
       finalUrl += 'computerName=' + params.searchName + '&';

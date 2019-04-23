@@ -115,31 +115,74 @@ export class ComputerListComponent implements OnInit {
   ];
 
   computers: Computer[] = [];
+
   maxPage: number;
+  currentPage: number;
+  elements: number;
+
   searchName: string;
+  sort: any;
+
 
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    /*this.api.getComputers({}).subscribe(
+    this.api.getComputers({}).subscribe(
       (rslt) => {
         this.computers = rslt.body;
       },
       (error) => {
         console.log(error);
       }
-    );*/
+    );
     this.Mock.forEach(computer => this.computers.push(computer));
+
+    this.currentPage = 0;
+    this.searchName = null;
+    this.sort = null;
   }
 
-
-  changePage($event) {
-    this.api.getComputers($event).subscribe(
+  getComputers() {
+    const params = {
+      numberOfElements: this.elements,
+      desiredPage: this.currentPage,
+      sort: this.sort,
+      searchName: this.searchName
+    };
+    console.log(params);
+    this.api.getComputers(params).subscribe(
       result => {this.computers = result.body;
                  console.log(result.headers.get('MaxPageId'));
                  this.maxPage = +result.headers.get('MaxPageId'); },
       error => console.log(error)
     );
+  }
+
+  changePage($event) {
+    console.log('change page: ' + $event);
+    this.currentPage = $event;
+    this.getComputers();
+  }
+
+  changeElements($event) {
+    console.log('change elements: ' + $event);
+    this.elements = $event;
+    this.currentPage = 0;
+    this.getComputers();
+  }
+
+  changeSort($event) {
+    console.log('change sort: ' + $event);
+    this.sort = $event;
+    this.currentPage = 0;
+    this.getComputers();
+  }
+
+  changeSearch($event) {
+    console.log('change search: ' + $event);
+    this.searchName = $event;
+    this.currentPage = 0;
+    this.getComputers();
   }
 
   deleteComputer($event) {
@@ -148,4 +191,5 @@ export class ComputerListComponent implements OnInit {
       error => console.log(error)
     );
   }
+
 }

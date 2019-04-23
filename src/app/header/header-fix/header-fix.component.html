@@ -2,7 +2,7 @@
 
     <div class="fixed">
         <button (click)="doSearch()" style="margin-left: 40px;margin-right:10px;" mat-mini-fab color="accent"><i class="material-icons">search</i></button>
-        <input type="text" [(value)]="searchName">
+        <input type="text" (change)="changeSearchName($event)">
 
  
     </div>

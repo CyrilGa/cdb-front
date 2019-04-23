@@ -1,4 +1,4 @@
-<app-header-fix (sort)="changePage($event)"></app-header-fix>
+<app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
 <mat-grid-list cols="5" rowHeight="30px">
   <mat-grid-tile [colspan]=1 [rowspan]=1>
     <span>COMPUTER NAME</span>
@@ -16,4 +16,4 @@
 <div id="computers">
     <app-computer-details *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
 </div>
-<app-footer-fix [maxPage]="maxPage" (pagination)="changePage($event)"></app-footer-fix>
+<app-footer-fix [maxPage]="maxPage" [currentPage]="currentPage" (changePage)="changePage($event)" (changeNumberOfElements)="changeElements($event)"></app-footer-fix>
