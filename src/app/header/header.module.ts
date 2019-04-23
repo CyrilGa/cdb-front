@@ -21,6 +21,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatSelectModule,
     MatSlideToggleModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent, HeaderFixComponent]
 })
 export class HeaderModule { }

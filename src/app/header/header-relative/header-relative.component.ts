@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-relative',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderRelativeComponent implements OnInit {
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  goToLogin = function() {
+    this.router.navigateByUrl("/login");
+  }
 
   ngOnInit() {
     let isLogged: boolean = false;

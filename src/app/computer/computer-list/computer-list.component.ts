@@ -128,6 +128,7 @@ export class ComputerListComponent implements OnInit {
         console.log(error);
       }
     );
+    this.Mock.forEach(computer => this.computers.push(computer));
   }
 
 

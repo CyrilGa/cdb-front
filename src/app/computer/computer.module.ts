@@ -5,6 +5,7 @@ import { ComputerDetailsComponent } from './computer-details/computer-details.co
 import { FooterModule } from '../footer/footer.module';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import {MatGridListModule} from '@angular/material';
+import { HeaderModule } from '../header/header.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {MatGridListModule} from '@angular/material';
     CommonModule,
     FooterModule,
     CustomMaterialModule,
-    MatGridListModule
+    MatGridListModule,
+    HeaderModule
   ],
   exports: [
     ComputerListComponent,
