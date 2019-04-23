@@ -127,19 +127,12 @@ export class ComputerListComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getComputers({}).subscribe(
-      (rslt) => {
-        this.computers = rslt.body;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    this.Mock.forEach(computer => this.computers.push(computer));
-
     this.currentPage = 0;
     this.searchName = null;
     this.sort = null;
+    
+    this.getComputers();
+    this.Mock.forEach(computer => this.computers.push(computer));
   }
 
   getComputers() {
@@ -152,7 +145,8 @@ export class ComputerListComponent implements OnInit {
     console.log(params);
     this.api.getComputers(params).subscribe(
       result => {this.computers = result.body;
-                 console.log(result.headers.get('MaxPageId'));
+                 console.log(result);
+                 console.log('header' + result.headers.get('MaxPageId'));
                  this.maxPage = +result.headers.get('MaxPageId'); },
       error => console.log(error)
     );

@@ -36,8 +36,7 @@ export class FooterFixComponent implements OnInit {
   }
 
   getNextPage() {
-    console.log(this.currentPage);
-    this.changePage.emit(this.currentPage + 1);
+    this.changePage.emit(this.currentPage === this.maxPage ? this.maxPage : this.currentPage + 1);
   }
 
   setNumberOfElements(elements: number) {
