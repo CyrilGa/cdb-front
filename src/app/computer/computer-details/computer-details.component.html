@@ -1,18 +1,22 @@
 <mat-grid-list id="container" cols="5" rowHeight="50px">
     <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span>{{computer.name}}</span>
+      <span *ngIf="!isEdit">{{computer.name}}</span>
+      <input *ngIf="isEdit" type="text" value="{{ computer.name }}" placeholder="computer name"/>
     </mat-grid-tile>
     <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span>{{computer.introduced}}</span>
+      <span *ngIf="!isEdit">{{computer.introduced}}</span>
+      <input *ngIf="isEdit" type="date" value="{{ introducedDate }}"/>
+      <input *ngIf="isEdit" type="time" value="{{ introducedHour }}" />
     </mat-grid-tile>
     <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span>{{computer.discontinued}}</span>
+      <span *ngIf="!isEdit">{{computer.discontinued}}</span>
+      <input *ngIf="isEdit" type="date" value="{{ discontinuedDate }}"/>
+      <input *ngIf="isEdit" type="time" value="{{ discontinuedHour }}" />
     </mat-grid-tile>
     <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span>{{computer.company.name}}</span>
+      <span *ngIf="!isEdit">{{computer.company.name}}</span>
     </mat-grid-tile>
     <mat-grid-tile id="container-button" [colspan]=1 [rowspan]=1>
-        <button mat-raised-button>Edit</button>
+        <button mat-raised-button (click)="onEdit(computer)">Edit</button>
         <button mat-raised-button (click)="delete()">Delete</button>
     </mat-grid-tile>
-</mat-grid-list>
