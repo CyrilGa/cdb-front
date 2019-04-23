@@ -19,10 +19,6 @@ export class HeaderFixComponent implements OnInit {
     this.isAsc = true;
   }
 
-  getSortName(sortName: string) {
-    this.sortName = sortName;
-  }
-
   toggleAsc() {
     this.isAsc = !this.isAsc;
   }
