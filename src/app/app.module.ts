@@ -20,7 +20,7 @@ import {AuthenticationModule} from './authentication/authentication.module';
     FooterModule,
     HttpClientModule,
     ComputerModule,
-    AuthenticationModule
+    AuthenticationModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

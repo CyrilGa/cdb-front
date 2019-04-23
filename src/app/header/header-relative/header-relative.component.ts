@@ -11,11 +11,14 @@ export class HeaderRelativeComponent implements OnInit {
   constructor(private router: Router) {}
 
   goToLogin = function() {
-    this.router.navigateByUrl("/login");
+    this.router.navigateByUrl('/login');
+  }
+
+  goToSignUp = function() {
+    this.router.navigateByUrl('/register');
   }
 
   ngOnInit() {
-    let isLogged: boolean = false;
   }
 
 }

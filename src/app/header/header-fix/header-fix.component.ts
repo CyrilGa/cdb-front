@@ -10,8 +10,12 @@ export class HeaderFixComponent implements OnInit {
   @Output()
   sort = new EventEmitter();
 
+  @Output()
+  search = new EventEmitter();
+
   sortName: string;
   isAsc: boolean;
+  searchName: string;
 
   constructor() { }
 
@@ -23,10 +27,18 @@ export class HeaderFixComponent implements OnInit {
     this.isAsc = !this.isAsc;
   }
 
+  doSearch() {
+    this.search.emit(this.searchName);
+  }
+
   doSort() {
     this.sort.emit({
       sortName: this.sortName,
       sortType: this.isAsc ? "ASC" : "DESC"
     });
+  }
+
+  changeSearchName($event) {
+    this.searchName = $event.target.value;
   }
 }

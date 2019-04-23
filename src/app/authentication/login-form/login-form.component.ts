@@ -1,5 +1,7 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { ApiService } from '../../service/api.service';
+import {ApiService} from '../../service/api.service';
+import {Router} from '@angular/router';
+import {SessionService} from '../session.service';
 
 @Component({
   selector: 'app-login-form',
@@ -10,14 +12,20 @@ export class LoginFormComponent implements OnInit {
   username = '';
   password = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private sessionService: SessionService, private router: Router) {
+  }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    if (this.sessionService.getUserToken() !== null) {
+      this.router.navigate(['/']);
+    }
+  }
 
   login() {
-    this.apiService.getCompanies().subscribe((response) => console.log(response));
-
-    this.apiService.login(this.username, this.password).subscribe((response) => console.log(response));
+    this.apiService.login(this.username, this.password).subscribe(response => {
+      this.sessionService.saveUser(response);
+      this.router.navigate(['/']);
+    }, error => this.sessionService.invalidateUser());
   }
 
 }
