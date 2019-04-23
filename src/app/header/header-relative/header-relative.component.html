@@ -1,21 +1,19 @@
-<div class="header-relative-component">
+<div class="container">
 
-  <mat-toolbar class="global">  
+  <div class="title-symbol">
+    <img src="../../assets/logo-new.png" alt="" />
+  </div>
 
-    <div class="titleSymbol">
-        <img src="../../assets/cdb-logo.png" alt=""/>
-    </div>       
+  <h1 class="title">COMPUTER DATABASE</h1>
 
-    <h1 class="title">COMPUTER DATABASE</h1>
-
-    <div *ngIf="false; else elseBlock" style="margin-right: 25px;" class="logged">
-      <span>Welcome, User !</span>
+  <div *ngIf="false; else elseBlock" class="logged">
+    <span>Welcome, User !</span>
+  </div>
+  <ng-template class="buttons" #elseBlock>
+    <div class="container-button">
+      <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
+      <button class="signup" mat-raised-button color="accent">Signup</button>
     </div>
-    <ng-template class="buttons" #elseBlock>
-        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
-        <button class="signup" mat-raised-button color="accent">Signup</button>
-    </ng-template>
-
-  </mat-toolbar>
+  </ng-template>
 
 </div>

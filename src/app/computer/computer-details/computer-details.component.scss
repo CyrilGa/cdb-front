@@ -1,19 +1,27 @@
-#container{
+.container-panel{
+    margin: 0 10%;
+    background-color: inherit;
+}
+
+.container-header{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
+    justify-content: space-around;
+    align-items: center;
 
-    background-color: inherit;
     border-radius: 5px;
     padding: 0 10px;
-    margin: 0px 10px;
-    margin: 0 10%;
 }
 
-#container-button :nth-child(n){
-    margin: 0 10px;
+.container-table-row{
+    width: 20%;
+    text-align: center;
+    align-self: baseline;
 }
+
+// #container-button :nth-child(n){
+//     margin: 0 10px;
+// }
 
 span{
     color: black;

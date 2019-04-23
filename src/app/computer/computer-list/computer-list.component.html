@@ -1,19 +1,25 @@
 <app-header-fix (sort)="changePage($event)"></app-header-fix>
-<mat-grid-list cols="5" rowHeight="30px">
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
+
+<div class="container">
+  <div>
     <span>COMPUTER NAME</span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
+  </div>
+  <div>
     <span>INTRODUCED DATE</span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
+  </div>
+  <div>
     <span>DISCONTINUED DATE</span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
+  </div>
+  <div>
     <span>COMPANY NAME</span>
-  </mat-grid-tile>
-</mat-grid-list>
-<div id="computers">
-    <app-computer-details *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
+  </div>
+  <div>
+  </div>
 </div>
+
+<div id="computers">
+  <app-computer-details *ngFor="let computer of computers" [computer]="computer"
+    (deleteComputer)="deleteComputer($event)"></app-computer-details>
+</div>
+
 <app-footer-fix [maxPage]="maxPage" (pagination)="changePage($event)"></app-footer-fix>

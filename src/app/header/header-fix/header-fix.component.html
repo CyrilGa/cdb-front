@@ -1,15 +1,21 @@
-<div id="header-fix-component">
+<div class="container">
 
-    <div class="fixed">
-        <button style="margin-left: 40px;margin-right:10px;" mat-mini-fab color="accent"><i class="material-icons">search</i></button>
-        <input class="search" value="search">  
+    <div class="container-search">
+        <div>
+            <button mat-mini-fab color="accent"><i class="material-icons">search</i></button>
+        </div>
+        <div>
+            <mat-form-field>
+                <input matInput class="search" value="search">
+            </mat-form-field>
+        </div>
     </div>
 
-    <div class="sortSelection">
-        <button (click)="doSort()" style="margin-right: 30px;" mat-mini-fab color="accent"><i class="material-icons">swap_vert</i></button>
+    <div class="container-sort">
+        <button (click)="doSort()" mat-mini-fab color="accent"><i class="material-icons">swap_vert</i></button>
 
-        <mat-form-field style="margin-right: 30px;">
-            <mat-label style="color: white;">Selection</mat-label>
+        <mat-form-field>
+            <mat-label>Selection</mat-label>
             <mat-select [(value)]="sortName">
                 <mat-option value="name">Name</mat-option>
                 <mat-option value="introduced">Introduced</mat-option>
@@ -18,7 +24,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-slide-toggle (click)="toggleAsc()" style="color:white;">ASC</mat-slide-toggle>
+        <mat-slide-toggle (click)="toggleAsc()">ASC</mat-slide-toggle>
     </div>
-    
+
 </div>
