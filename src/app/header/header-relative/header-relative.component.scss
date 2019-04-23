@@ -1,5 +1,9 @@
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+$orange-cdb: #f05a26;
+$light-orange-cdb: #f56d3f;
+$grey-cdb: #151515;
+
 .header-relative-component {
 
     .global {
@@ -29,8 +33,13 @@
     }
     .signup, .login {
         font-size: 20px;
+        background-color: $light-orange-cdb;
     }
     .example-spacer {
         flex: 1 1 auto;
+    }
+
+    img{
+        max-height: 100px;
     }
 }
