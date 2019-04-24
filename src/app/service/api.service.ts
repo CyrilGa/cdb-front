@@ -11,17 +11,19 @@ import {SessionService} from '../authentication/session.service';
   providedIn: 'root'
 })
 export class ApiService {
-  API_BASE_URL = 'http://10.0.1.42:8080/cdb/api/v1';
+  API_BASE_URL = 'http://localhost:8080/cdb/api/v1';
   COMPANY_API_URL = this.API_BASE_URL + '/companies';
   COMPUTER_API_URL = this.API_BASE_URL + '/computers';
   SIGNIN_URL = this.API_BASE_URL + '/users/signin';
   REGISTER_URL = this.API_BASE_URL + '/users/register';
 
-  httpHeaders = new HttpHeaders({
-    Authorization: 'Bearer ' + this.sessionService.getUserToken()
-  });
-
   constructor(private http: HttpClient, private sessionService: SessionService) {
+  }
+
+  getHttpHeaders() {
+    return new HttpHeaders({
+      Authorization: 'Bearer ' + this.sessionService.getUserToken()
+    });
   }
 
   getComputers(params): Observable<HttpResponse<Computer[]>> {
@@ -51,31 +53,31 @@ export class ApiService {
 
   getComputer(id: number): Observable<Computer> {
     return this.http.get<Computer>(this.COMPUTER_API_URL + '/' + id, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   postComputer(computer: Computer): Observable<Computer> {
     return this.http.post<Computer>(this.COMPUTER_API_URL, computer, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   deleteComputer(id: number): Observable<void> {
     return this.http.delete<void>(this.COMPUTER_API_URL + '/' + id, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   editComputer(computer: Computer): Observable<Computer> {
     return this.http.put<Computer>(this.COMPUTER_API_URL, computer, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   getCompanies(): Observable<Company[]> {
     return this.http.get<Company[]>(this.COMPANY_API_URL, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
