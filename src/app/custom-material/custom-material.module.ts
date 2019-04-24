@@ -5,11 +5,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule, MatCardModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatSelectModule } from '@angular/material/select'; 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'; 
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { SnackbarComponent } from './snackbar/snackbar.component';
+import { MatSnackBarModule } from '@angular/material';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SnackbarComponent
+  ],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -21,7 +25,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatCardModule,
     MatExpansionModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSnackBarModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -33,7 +38,11 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatCardModule,
     MatExpansionModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSnackBarModule
+  ],
+  entryComponents: [
+    SnackbarComponent
   ]
 })
 export class CustomMaterialModule { }

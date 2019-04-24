@@ -13,7 +13,7 @@
   <div>
     <span>COMPANY NAME</span>
   </div>
-  <div>
+  <div *ngIf="(getUserRole() === 'USER' || getUserRole() === 'ADMIN')">
   </div>
 </div>
 

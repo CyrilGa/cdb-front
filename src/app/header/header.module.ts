@@ -5,13 +5,15 @@ import { HeaderFixComponent } from './header-fix/header-fix.component';
 import { HeaderComponent } from './header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [HeaderRelativeComponent, HeaderFixComponent, HeaderComponent],
   imports: [
     CommonModule,
     BrowserAnimationsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    RouterModule
   ],
   exports: [HeaderComponent, HeaderFixComponent]
 })

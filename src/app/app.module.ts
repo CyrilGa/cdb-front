@@ -6,8 +6,8 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
 import { FooterModule } from './footer/footer.module';
 import { HttpClientModule } from '@angular/common/http';
-import {ComputerModule} from './computer/computer.module';
-import {AuthenticationModule} from './authentication/authentication.module';
+import { ComputerModule } from './computer/computer.module';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
   declarations: [

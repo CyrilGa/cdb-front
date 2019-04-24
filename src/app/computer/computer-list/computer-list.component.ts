@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
+import {SessionService} from '../../authentication/session.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class ComputerListComponent implements OnInit {
   searchName: string;
   sort: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private sessionService: SessionService) { }
 
   ngOnInit() {
     this.currentPage = 0;
@@ -82,4 +83,12 @@ export class ComputerListComponent implements OnInit {
       error => console.log(error)
     );
   }
+<<<<<<< HEAD
+=======
+
+  getUserRole(): string {
+    return this.sessionService.getUserRole();
+  }
+
+>>>>>>> 238d14a4315ded717d58da80cb25a0076cb04fe8
 }

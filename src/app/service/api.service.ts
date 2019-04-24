@@ -17,11 +17,13 @@ export class ApiService {
   SIGNIN_URL = this.API_BASE_URL + '/users/signin';
   REGISTER_URL = this.API_BASE_URL + '/users/register';
 
-  httpHeaders = new HttpHeaders({
-    Authorization: 'Bearer ' + this.sessionService.getUserToken()
-  });
-  
   constructor(private http: HttpClient, private sessionService: SessionService) {
+  }
+
+  getHttpHeaders() {
+    return new HttpHeaders({
+      Authorization: 'Bearer ' + this.sessionService.getUserToken()
+    });
   }
 
   getComputers(params): Observable<HttpResponse<Computer[]>> {
@@ -39,7 +41,6 @@ export class ApiService {
       finalUrl += 'computerName=' + params.searchName + '&';
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
-    console.log(finalUrl);
 
     return this.http.get<Computer[]>(finalUrl, {
       observe: 'response'
@@ -52,19 +53,19 @@ export class ApiService {
 
   postComputer(computer: Computer): Observable<Computer> {
     return this.http.post<Computer>(this.COMPUTER_API_URL, computer, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   deleteComputer(id: number): Observable<void> {
     return this.http.delete<void>(this.COMPUTER_API_URL + '/' + id, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
   editComputer(computer: Computer): Observable<Computer> {
     return this.http.put<Computer>(this.COMPUTER_API_URL, computer, {
-      headers: this.httpHeaders
+      headers: this.getHttpHeaders()
     });
   }
 
