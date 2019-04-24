@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
 import {SessionService} from '../../authentication/session.service';
+import {MatSnackBar} from '@angular/material';
+import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
 
 
 @Component({
@@ -21,7 +23,8 @@ export class ComputerListComponent implements OnInit {
   searchName: string;
   sort: any;
 
-  constructor(private api: ApiService, private sessionService: SessionService) { }
+  constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.currentPage = 0;
@@ -40,10 +43,12 @@ export class ComputerListComponent implements OnInit {
     };
     console.log(params);
     this.api.getComputers(params).subscribe(
-      result => {this.computers = result.body;
-                 console.log(result);
-                 console.log('header' + result.headers.get('MaxPageId'));
-                 this.maxPage = +result.headers.get('MaxPageId'); },
+      result => {
+        this.computers = result.body;
+        console.log(result);
+        console.log('header' + result.headers.get('MaxPageId'));
+        this.maxPage = +result.headers.get('MaxPageId');
+      },
       error => console.log(error)
     );
   }
@@ -77,9 +82,14 @@ export class ComputerListComponent implements OnInit {
 
   deleteComputer($event) {
     this.api.deleteComputer($event).subscribe(
-      () => {console.log('service');
-      this.getComputers();
-    },
+      response => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: 5 * 1000,
+          panelClass: ['snackbar', 'snackbar-success'],
+          data: 'Successfully deleted computer'
+        });
+        this.getComputers();
+      },
       error => console.log(error)
     );
   }
