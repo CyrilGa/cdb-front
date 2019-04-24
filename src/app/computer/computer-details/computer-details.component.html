@@ -14,34 +14,34 @@
       <div class="container-table-row">
         <span>{{computer.company.name}}</span>
       </div>
-      
+
     </mat-expansion-panel-header>
 
 
     <div class="container-body">
       <div>
         <mat-form-field>
-          <input matInput id="computerNameInput" type="text" value="{{ computer.name }}" placeholder="computer name" />
+          <input matInput id="computerNameInput" type="text" value="{{ computer.name }}" placeholder="computer name"/>
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput id="introducedDateInput" type="date" value="{{ introducedDate }}" />
+          <input matInput id="introducedDateInput" type="date" value="{{ introducedDate }}"/>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput id="introducedHourInput" type="time" value="{{ introducedHour }}" />
+          <input matInput id="introducedHourInput" type="time" value="{{ introducedHour }}"/>
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput id="discontinuedDateInput" type="date" value="{{ discontinuedDate }}" />
+          <input matInput id="discontinuedDateInput" type="date" value="{{ discontinuedDate }}"/>
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput id="discontinuedHourInput" type="time" value="{{ discontinuedHour }}" />
+          <input matInput id="discontinuedHourInput" type="time" value="{{ discontinuedHour }}"/>
         </mat-form-field>
       </div>
 
@@ -59,8 +59,9 @@
 
   </mat-expansion-panel>
 
-  <div class="container-button-header"  *ngIf="(getUserRole() === 'USER' || getUserRole() === 'ADMIN')">
-    <button mat-button (click)="onEdit(); invExpanded()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Edit</button>
+  <div class="container-button-header" *ngIf="(getUserRole() === 'ADMIN')">
+    <button mat-button (click)="onEdit(); invExpanded()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Edit
+    </button>
     <button mat-button (click)="delete()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Delete</button>
     <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
     <button mat-button (click)=" invExpanded()" *ngIf="edit.expanded">Cancel</button>
