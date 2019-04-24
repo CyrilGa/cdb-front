@@ -1,4 +1,4 @@
-<mat-expansion-panel class="container-panel" hideToggle="true" #edit>
+<mat-expansion-panel class="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
     <mat-expansion-panel-header class="container-header" *ngIf="!edit.expanded">
       <div class="container-table-row">
         <span>{{computer.name}}</span>
@@ -13,7 +13,7 @@
         <span>{{computer.company.name}}</span>
       </div>
       <div class="container-table-row">
-        <button mat-button (click)="onEdit(computer)" *ngIf="!edit.expanded">Edit</button>
+        <button mat-button (click)="onEdit(computer); invExpanded()">Edit</button>
         <button mat-button (click)="delete()">Delete</button>
       </div>
     </mat-expansion-panel-header>
@@ -28,7 +28,7 @@
         </div>
         <div>
           <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
-          <button mat-button  *ngIf="edit.expanded">Cancel</button>
+          <button mat-button (click)="closed=true" *ngIf="edit.expanded">Cancel</button>
         </div>
       </div>
   

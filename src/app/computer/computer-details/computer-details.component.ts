@@ -16,6 +16,8 @@ export class ComputerDetailsComponent {
   discontinuedHour: string;
   companies: Company[];
 
+  isExpanded = false; 
+
   constructor(private api: ApiService) {}
 
   @Input()
@@ -40,6 +42,10 @@ export class ComputerDetailsComponent {
 
   delete() {
     this.deleteComputer.emit(this.computer.id);
+  }
+
+  invExpanded(){
+    this.isExpanded = !this.isExpanded;
   }
 
 }
