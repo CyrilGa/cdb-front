@@ -1,21 +1,16 @@
-<mat-grid-list cols="7" rowHeight="100px">
-  <mat-grid-tile
-    [colspan]=6
-    [rowspan]=1>
-    <button mat-stroked-button (click)="getFirstPage()">First</button>
-    <button mat-stroked-button (click)="getPreviousPage()">-1</button>
-    <button mat-stroked-button>{{currentPage+1}}</button>
-    <button mat-stroked-button (click)="getNextPage()">+1</button>
-    <button mat-stroked-button (click)="getLastPage()">Last</button>
-  </mat-grid-tile>
-  <mat-grid-tile
-    [colspan]=1
-    [rowspan]=1>
-    <mat-button-toggle-group>
-      <mat-button-toggle (click)="setNumberOfElements(10)">10</mat-button-toggle>
-      <mat-button-toggle (click)="setNumberOfElements(20)">20</mat-button-toggle>
-      <mat-button-toggle (click)="setNumberOfElements(50)">50</mat-button-toggle>
-      <mat-button-toggle (click)="setNumberOfElements(100)">100</mat-button-toggle>
-    </mat-button-toggle-group>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="footer-fix">
+  <div class="navigation-links">
+    <button mat-stroked-button (click)="getFirstPage()">&laquo;</button>
+    <button mat-stroked-button (click)="getPreviousPage()"> < </button>
+    <button mat-stroked-button disabled="disabled">{{currentPage+1}}</button>
+    <button mat-stroked-button (click)="getNextPage()"> > </button>
+    <button mat-stroked-button (click)="getLastPage()">&raquo;</button>
+  </div>
+
+  <mat-button-toggle-group class="page-size-selector" value="10">
+    <mat-button-toggle (click)="setNumberOfElements(10)" value="10">10</mat-button-toggle>
+    <mat-button-toggle (click)="setNumberOfElements(25)" value="25">25</mat-button-toggle>
+    <mat-button-toggle (click)="setNumberOfElements(50)" value="50">50</mat-button-toggle>
+    <mat-button-toggle (click)="setNumberOfElements(100)" value="100">100</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>

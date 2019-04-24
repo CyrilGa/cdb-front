@@ -48,8 +48,7 @@ export class ComputerListComponent implements OnInit {
         console.log(result);
         console.log('header' + result.headers.get('MaxPageId'));
         this.maxPage = +result.headers.get('MaxPageId');
-      },
-      error => console.log(error)
+      }
     );
   }
 
