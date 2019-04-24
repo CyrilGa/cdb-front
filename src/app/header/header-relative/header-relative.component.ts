@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {SessionService} from "../../authentication/session.service";
+import {SessionService} from '../../authentication/session.service';
 
 @Component({
   selector: 'app-header-relative',
@@ -10,14 +10,6 @@ import {SessionService} from "../../authentication/session.service";
 export class HeaderRelativeComponent {
 
   constructor(private router: Router, private sessionService: SessionService) {}
-
-  goToLogin = function() {
-    this.router.navigateByUrl('/login');
-  }
-
-  goToSignUp = function() {
-    this.router.navigateByUrl('/register');
-  }
 
   logout = function() {
     this.sessionService.invalidateUser();

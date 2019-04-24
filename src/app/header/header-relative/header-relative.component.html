@@ -1,15 +1,19 @@
 <div class="container">
 
   <div class="title-symbol">
-    <img src="../../assets/logo-new.png" alt=""/>
+    <a [routerLink]="['/']">
+      <img src="../../assets/logo-new.png" alt=""/>
+    </a>
   </div>
 
-  <h1 class="title">COMPUTER DATABASE</h1>
+  <h1 class="title">
+    <a>COMPUTER DATABASE</a>
+  </h1>
 
   <div>
     <div class="container-button" *ngIf="!isLoggedIn()">
-      <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
-      <button (click)="goToSignUp()" class="signup" mat-raised-button color="accent">Signup</button>
+      <button [routerLink]="['/login']" class="login" mat-raised-button color="primary">Login</button>
+      <button [routerLink]="['/register']" class="signup" mat-raised-button color="accent">Signup</button>
     </div>
 
     <div class="container-button" *ngIf="isLoggedIn()">
