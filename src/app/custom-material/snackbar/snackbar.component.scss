@@ -1,0 +1,15 @@
+@import '~src/app-theme.scss';
+
+::ng-deep {
+  .snackbar {
+    color: #FFFFFF;
+  }
+
+  .snackbar-error {
+    background-color: mat-color($app-warn, 700);
+  }
+
+  .snackbar-success {
+    background-color: mat-color($app-success, 700);
+  }
+}
