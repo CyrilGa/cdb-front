@@ -14,42 +14,45 @@
       <div class="container-table-row">
         <span>{{computer.company.name}}</span>
       </div>
-      
-    </mat-expansion-panel-header>
 
+    </mat-expansion-panel-header>
 
     <div class="container-body">
       <div>
         <mat-form-field>
-          <input matInput id="computerNameInput" type="text" value="{{ computer.name }}" placeholder="computer name" />
+          <input matInput type="text" ([ngModel])="computerEdit.name" value="{{ computerEdit.name }}"
+            placeholder="computer name" />
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput id="introducedDateInput" type="date" value="{{ introducedDate }}" />
+          <input matInput type="date" ([ngModel])="computerEdit.introducedDate"
+            value="{{ computerEdit.introducedDate }}" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput id="introducedHourInput" type="time" value="{{ introducedHour }}" />
+          <input matInput type="time" ([ngModel])="computerEdit.introducedHour"
+            value="{{ computerEdit.introducedHour }}" />
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput id="discontinuedDateInput" type="date" value="{{ discontinuedDate }}" />
+          <input matInput type="date" ([ngModel])="computerEdit.discontinuedDate"
+            value="{{ computerEdit.discontinuedDate }}" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput id="discontinuedHourInput" type="time" value="{{ discontinuedHour }}" />
+          <input matInput type="time" ([ngModel])="computerEdit.discontinuedHour"
+            value="{{ computerEdit.discontinuedHour }}" />
         </mat-form-field>
       </div>
 
       <div>
         <mat-form-field>
-          <mat-label *ngIf="computer.company === null">Company</mat-label>
-          <mat-label *ngIf="computer.company !== null">{{ computer.company.name }}</mat-label>
-          <mat-select ([value])="computer.company.name">
+          <mat-label>Company</mat-label>
+          <mat-select ([value])="computerEdit.company.name" value="{{ computerEdit.company.name }}">
             <mat-option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</mat-option>
           </mat-select>
         </mat-form-field>
@@ -59,8 +62,9 @@
 
   </mat-expansion-panel>
 
-  <div class="container-button-header"  *ngIf="(getUserRole() === 'USER' || getUserRole() === 'ADMIN')">
-    <button mat-button (click)="onEdit(); invExpanded()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Edit</button>
+  <div class="container-button-header" *ngIf="(getUserRole() === 'USER' || getUserRole() === 'ADMIN')">
+    <button mat-button (click)="onEdit(); invExpanded()"
+      *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Edit</button>
     <button mat-button (click)="delete()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Delete</button>
     <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
     <button mat-button (click)=" invExpanded()" *ngIf="edit.expanded">Cancel</button>

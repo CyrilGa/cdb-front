@@ -42,7 +42,6 @@ export class ComputerListComponent implements OnInit {
     this.api.getComputers(params).subscribe(
       result => {this.computers = result.body;
                  console.log(result);
-                 console.log('header' + result.headers.get('MaxPageId'));
                  this.maxPage = +result.headers.get('MaxPageId'); },
       error => console.log(error)
     );
@@ -77,7 +76,7 @@ export class ComputerListComponent implements OnInit {
 
   deleteComputer($event) {
     this.api.deleteComputer($event).subscribe(
-      () => {console.log('service');
+      (sucess) => {console.log('service');
       this.getComputers();
     },
       error => console.log(error)
@@ -86,6 +85,13 @@ export class ComputerListComponent implements OnInit {
 
   getUserRole(): string {
     return this.sessionService.getUserRole();
+  }
+
+  saveComputer($event) {
+    this.api.editComputer($event).subscribe(
+      () => this.getComputers(),
+      error => console.log(error)
+    );
   }
 
 }

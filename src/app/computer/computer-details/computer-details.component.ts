@@ -3,6 +3,7 @@ import { Computer } from '../model/computer.model';
 import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
 import { SessionService } from '../../authentication/session.service';
+import { ComputerEdit } from '../model/computerEdit.model';
 
 @Component({
   selector: 'app-computer-details',
@@ -11,11 +12,21 @@ import { SessionService } from '../../authentication/session.service';
 })
 export class ComputerDetailsComponent {
 
-  introducedDate: string;
-  discontinuedDate: string;
-  introducedHour: string;
-  discontinuedHour: string;
   companies: Company[];
+  
+  computerEdit: ComputerEdit = 
+  {
+    id: -1,
+    name: "",
+    introducedDate: "",
+    introducedHour: "",
+    discontinuedDate: "",
+    discontinuedHour: "",
+    company: {
+      id: -1,
+      name: ""
+    }
+  };
 
   isExpanded = false;
 
@@ -26,19 +37,17 @@ export class ComputerDetailsComponent {
 
   @Output() deleteComputer = new EventEmitter();
 
+  @Output() saveComputer = new EventEmitter();
+
   onEdit(computer: Computer): void {
-    let e: HTMLInputElement;
-    e = <HTMLInputElement>document.getElementById("computerNameInput");
-    e.value = this.computer.name;
-    e = <HTMLInputElement>document.getElementById("introducedDateInput");
-    e.value = this.computer.introduced.substring(0, 10);
-    e = <HTMLInputElement>document.getElementById("introducedHourInput");
-    e.value = this.computer.introduced.substring(11);
-    e = <HTMLInputElement>document.getElementById("discontinuedDateInput");
-    e.value = this.computer.discontinued.substring(0, 10);
-    e = <HTMLInputElement>document.getElementById("discontinuedHourInput");
-    e.value = this.computer.discontinued.substring(11);
     this.loadCompanies();
+    let e: HTMLInputElement;
+    this.computerEdit.name = this.computer.name;
+    this.computerEdit.introducedDate = this.computer.introduced.substring(0, 10);
+    this.computerEdit.introducedHour = this.computer.introduced.substring(11);
+    this.computerEdit.discontinuedDate = this.computer.discontinued.substring(0, 10);
+    this.computerEdit.discontinuedHour = this.computer.discontinued.substring(11);
+    this.computerEdit.company.name = this.computer.company.name;
   }
 
   loadCompanies(): void {
@@ -58,6 +67,35 @@ export class ComputerDetailsComponent {
 
   getUserRole(): string {
     return this.sessionService.getUserRole();
+  }
+
+  save() {
+    let computerName = (<HTMLInputElement>document.getElementById("computerNameInput")).value;
+
+    let introduced =
+      (<HTMLInputElement>document.getElementById("introducedDateInput")).value
+      + " "
+      + (<HTMLInputElement>document.getElementById("introducedHourInput")).value;
+
+    let discontinued =
+      (<HTMLInputElement>document.getElementById("discontinuedDateInput")).value
+      + " "
+      + (<HTMLInputElement>document.getElementById("discontinuedHourInput")).value;
+
+    let companyName = (<HTMLInputElement>document.getElementById("companyName")).value;
+
+    let computer: Computer = {
+      id: this.computer.id,
+      name: computerName,
+      introduced: introduced,
+      discontinued: discontinued,
+      company: {
+        id: -1,
+        name: companyName
+      }
+    }
+
+    this.saveComputer.emit(computer);
   }
 
 }

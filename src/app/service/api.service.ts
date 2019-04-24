@@ -57,8 +57,8 @@ export class ApiService {
     });
   }
 
-  deleteComputer(id: number): Observable<void> {
-    return this.http.delete<void>(this.COMPUTER_API_URL + '/' + id, {
+  deleteComputer(id: number): Observable<string> {
+    return this.http.delete<string>(this.COMPUTER_API_URL + '/' + id, {
       headers: this.getHttpHeaders()
     });
   }

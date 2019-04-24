@@ -3,7 +3,6 @@ import {ApiService} from '../../service/api.service';
 import {Router} from '@angular/router';
 import {SessionService} from '../session.service';
 import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
-import {SuccessSnackbarComponent} from '../../custom-material/success-snackbar/success-snackbar.component';
 import {MatSnackBar} from '@angular/material';
 
 @Component({
