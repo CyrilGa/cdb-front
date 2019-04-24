@@ -11,7 +11,7 @@ import {SessionService} from '../authentication/session.service';
   providedIn: 'root'
 })
 export class ApiService {
-  API_BASE_URL = 'http://10.0.1.42:8080/cdb/api/v1';
+  API_BASE_URL = 'http://10.0.1.66:8080/cdb/api/v1';
   COMPANY_API_URL = this.API_BASE_URL + '/companies';
   COMPUTER_API_URL = this.API_BASE_URL + '/computers';
   SIGNIN_URL = this.API_BASE_URL + '/users/signin';
@@ -42,17 +42,12 @@ export class ApiService {
     console.log(finalUrl);
 
     return this.http.get<Computer[]>(finalUrl, {
-      observe: 'response',
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + this.sessionService.getUserToken()
-      })
+      observe: 'response'
     });
   }
 
   getComputer(id: number): Observable<Computer> {
-    return this.http.get<Computer>(this.COMPUTER_API_URL + '/' + id, {
-      headers: this.httpHeaders
-    });
+    return this.http.get<Computer>(this.COMPUTER_API_URL + '/' + id);
   }
 
   postComputer(computer: Computer): Observable<Computer> {
@@ -74,9 +69,7 @@ export class ApiService {
   }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.COMPANY_API_URL, {
-      headers: this.httpHeaders
-    });
+    return this.http.get<Company[]>(this.COMPANY_API_URL);
   }
 
   login(username: string, password: string): Observable<JwtToken> {

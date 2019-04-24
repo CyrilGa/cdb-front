@@ -26,10 +26,17 @@ export class ComputerDetailsComponent {
   @Output() deleteComputer = new EventEmitter();
 
   onEdit(computer: Computer): void {
-    this.introducedDate = computer.introduced.substring(0, 10);
-    this.discontinuedDate = computer.discontinued.substring(0, 10);
-    this.introducedHour = computer.introduced.substring(11);
-    this.discontinuedHour = computer.discontinued.substring(11);
+    let e: HTMLInputElement;
+    e = <HTMLInputElement>document.getElementById("computerNameInput");
+    e.value = this.computer.name;
+    e = <HTMLInputElement>document.getElementById("introducedDateInput");
+    e.value = this.computer.introduced.substring(0, 10);
+    e = <HTMLInputElement>document.getElementById("introducedHourInput");
+    e.value = this.computer.introduced.substring(11);
+    e = <HTMLInputElement>document.getElementById("discontinuedDateInput");
+    e.value = this.computer.discontinued.substring(0, 10);
+    e = <HTMLInputElement>document.getElementById("discontinuedHourInput");
+    e.value = this.computer.discontinued.substring(11);
     this.loadCompanies();
   }
 

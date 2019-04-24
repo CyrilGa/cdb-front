@@ -1,4 +1,6 @@
-<mat-expansion-panel class="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
+<div class="container">
+
+  <mat-expansion-panel class="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
     <mat-expansion-panel-header class="container-header" *ngIf="!edit.expanded">
       <div class="container-table-row">
         <span>{{computer.name}}</span>
@@ -12,46 +14,36 @@
       <div class="container-table-row">
         <span>{{computer.company.name}}</span>
       </div>
-      <div class="container-table-row">
-        <button mat-button (click)="onEdit(computer); invExpanded()">Edit</button>
-        <button mat-button (click)="delete()">Delete</button>
-      </div>
     </mat-expansion-panel-header>
-  
-  
+
+
     <div class="container-body">
-      <div class="container-form-group">
-        <div>
-          <mat-form-field>
-            <input matInput type="text" value="{{ computer.name }}" placeholder="computer name" />
-          </mat-form-field>
-        </div>
-        <div>
-          <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
-          <button mat-button (click)="closed=true" *ngIf="edit.expanded">Cancel</button>
-        </div>
+      <div>
+        <mat-form-field>
+          <input matInput id="computerNameInput" type="text" value="{{ computer.name }}" placeholder="computer name" />
+        </mat-form-field>
       </div>
-  
+
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput type="date" value="{{ introducedDate }}" />
+          <input matInput id="introducedDateInput" type="date" value="{{ introducedDate }}" />
         </mat-form-field>
-  
+
         <mat-form-field>
-          <input matInput type="time" value="{{ introducedHour }}" />
+          <input matInput id="introducedHourInput" type="time" value="{{ introducedHour }}" />
         </mat-form-field>
       </div>
-  
+
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput type="date" value="{{ discontinuedDate }}" />
+          <input matInput id="discontinuedDateInput" type="date" value="{{ discontinuedDate }}" />
         </mat-form-field>
-  
+
         <mat-form-field>
-          <input matInput type="time" value="{{ discontinuedHour }}" />
+          <input matInput id="discontinuedHourInput" type="time" value="{{ discontinuedHour }}" />
         </mat-form-field>
       </div>
-  
+
       <div>
         <mat-form-field>
           <mat-label *ngIf="computer.company === null">Company</mat-label>
@@ -61,7 +53,16 @@
           </mat-select>
         </mat-form-field>
       </div>
-  
+
     </div>
-  
+
   </mat-expansion-panel>
+
+  <div class="container-button-header">
+    <button mat-button (click)="onEdit(); invExpanded()" *ngIf="!edit.expanded">Edit</button>
+    <button mat-button (click)="delete()" *ngIf="!edit.expanded">Delete</button>
+    <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
+    <button mat-button (click)=" invExpanded()" *ngIf="edit.expanded">Cancel</button>
+  </div>
+
+</div>

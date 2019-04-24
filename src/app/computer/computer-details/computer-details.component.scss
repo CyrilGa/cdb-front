@@ -1,7 +1,18 @@
-.container-panel{
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
     margin: 0 10%;
     background-color: inherit;
-    pointer-events: none;
+}
+
+.container-panel{
+    background-color: inherit;
+    width: 80%;
+
+    box-shadow: none;
 }
 
 .container-header{
@@ -11,17 +22,13 @@
     align-items: center;
 
     border-radius: 5px;
-    padding: 0 10px;
+    padding: 0 0;
 }
 
 .container-table-row{
-    width: 20%;
     text-align: center;
     align-self: baseline;
-}
-
-.container-table-row button{
-    pointer-events: all;
+    width: 25%;
 }
 
 span{
@@ -33,14 +40,7 @@ span{
 .container-body{
     display: flex;
     flex-direction: column;
-    pointer-events: all;
-}
-
-.container-form-group{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    padding-top: 10px;
 }
 
 .container-dateTime :nth-child(1){
@@ -49,4 +49,19 @@ span{
 
 .container-dateTime :nth-child(2){
     padding-left: 5px;
+}
+
+.container-button-header{
+    width: 20%;
+    text-align: center;
+}
+
+.container-button-header :nth-child(1){
+    margin: 0 5px;
+}
+
+.container-button-header :nth-child(2){
+    margin: 0 5px;
+    background-color: #f37575;
+    color: white;
 }

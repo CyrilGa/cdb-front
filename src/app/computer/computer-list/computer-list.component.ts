@@ -20,125 +20,14 @@ export class ComputerListComponent implements OnInit {
   searchName: string;
   sort: any;
 
-  Mock = [
-    {
-      id: 18,
-      name: 'COSMAC ELF',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: 3,
-        name: 'RCA'
-      }
-    },
-    {
-      id: 19,
-      name: 'COSM',
-      introduced: '1977-01-02 01:00',
-      discontinued: '',
-      company: {
-        id: 3,
-        name: 'RCA'
-      }
-    },
-    {
-      id: 20,
-      name: 'ELF II',
-      introduced: '1977-01-01 01:00',
-      discontinued: '',
-      company: {
-        id: 4,
-        name: 'Netronics'
-      }
-    },
-    {
-      id: 22,
-      name: 'Macintosh II',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 24,
-      name: 'Macintosh IIfx',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 30,
-      name: 'Xserve',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 31,
-      name: 'Powerbook 100',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 32,
-      name: 'Powerbook 140',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 33,
-      name: 'Powerbook 170',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    },
-    {
-      id: 34,
-      name: 'PowerBook Duo',
-      introduced: '',
-      discontinued: '',
-      company: {
-        id: null,
-        name: null
-      }
-    }
-  ];
-
   constructor(private api: ApiService) { }
 
   ngOnInit() {
-    this.api.getComputers({}).subscribe(
-      (rslt) => {
-        this.computers = rslt.body;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
     this.currentPage = 0;
     this.searchName = null;
     this.sort = null;
     this.getComputers();
-    this.Mock.forEach(computer => this.computers.push(computer));
+    // this.Mock.forEach(computer => this.computers.push(computer));
   }
 
   getComputers() {
@@ -187,9 +76,10 @@ export class ComputerListComponent implements OnInit {
 
   deleteComputer($event) {
     this.api.deleteComputer($event).subscribe(
-      () => console.log('service'),
+      () => {console.log('service');
+      this.getComputers();
+    },
       error => console.log(error)
     );
   }
-
 }
