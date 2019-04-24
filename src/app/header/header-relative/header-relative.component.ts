@@ -11,9 +11,9 @@ export class HeaderRelativeComponent {
 
   constructor(private router: Router, private sessionService: SessionService) {}
 
-  logout = function() {
+  logout() {
     this.sessionService.invalidateUser();
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/?refresh=1');
   }
 
   isLoggedIn(): boolean {

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
 import {SessionService} from '../../authentication/session.service';
+import {MatSnackBar} from '@angular/material';
+import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
 
 
 @Component({
@@ -21,14 +23,14 @@ export class ComputerListComponent implements OnInit {
   searchName: string;
   sort: any;
 
-  constructor(private api: ApiService, private sessionService: SessionService) { }
+  constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
+  }
 
   ngOnInit() {
     this.currentPage = 0;
     this.searchName = null;
     this.sort = null;
     this.getComputers();
-    // this.Mock.forEach(computer => this.computers.push(computer));
   }
 
   getComputers() {
@@ -38,12 +40,11 @@ export class ComputerListComponent implements OnInit {
       sort: this.sort,
       searchName: this.searchName
     };
-    console.log(params);
     this.api.getComputers(params).subscribe(
-      result => {this.computers = result.body;
-                 console.log(result);
-                 this.maxPage = +result.headers.get('MaxPageId'); },
-      error => console.log(error)
+      result => {
+        this.computers = result.body;
+        this.maxPage = +result.headers.get('MaxPageId');
+      }
     );
   }
 
@@ -76,9 +77,14 @@ export class ComputerListComponent implements OnInit {
 
   deleteComputer($event) {
     this.api.deleteComputer($event).subscribe(
-      (sucess) => {console.log('service');
-      this.getComputers();
-    },
+      response => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: 5 * 1000,
+          panelClass: ['snackbar', 'snackbar-success'],
+          data: 'Successfully deleted computer'
+        });
+        this.getComputers();
+      },
       error => console.log(error)
     );
   }
