@@ -1,22 +1,67 @@
-<mat-grid-list id="container" cols="5" rowHeight="50px">
-    <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span *ngIf="!isEdit">{{computer.name}}</span>
-      <input *ngIf="isEdit" type="text" value="{{ computer.name }}" placeholder="computer name"/>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span *ngIf="!isEdit">{{computer.introduced}}</span>
-      <input *ngIf="isEdit" type="date" value="{{ introducedDate }}"/>
-      <input *ngIf="isEdit" type="time" value="{{ introducedHour }}" />
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span *ngIf="!isEdit">{{computer.discontinued}}</span>
-      <input *ngIf="isEdit" type="date" value="{{ discontinuedDate }}"/>
-      <input *ngIf="isEdit" type="time" value="{{ discontinuedHour }}" />
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]=1 [rowspan]=1>
-      <span *ngIf="!isEdit">{{computer.company.name}}</span>
-    </mat-grid-tile>
-    <mat-grid-tile id="container-button" [colspan]=1 [rowspan]=1>
-        <button mat-raised-button (click)="onEdit(computer)">Edit</button>
-        <button mat-raised-button (click)="delete()">Delete</button>
-    </mat-grid-tile>
+<mat-expansion-panel class="container-panel" hideToggle="true" #edit>
+    <mat-expansion-panel-header class="container-header" *ngIf="!edit.expanded">
+      <div class="container-table-row">
+        <span>{{computer.name}}</span>
+      </div>
+      <div class="container-table-row">
+        <span>{{computer.introduced}}</span>
+      </div>
+      <div class="container-table-row">
+        <span>{{computer.discontinued}}</span>
+      </div>
+      <div class="container-table-row">
+        <span>{{computer.company.name}}</span>
+      </div>
+      <div class="container-table-row">
+        <button mat-button (click)="onEdit(computer)" *ngIf="!edit.expanded">Edit</button>
+        <button mat-button (click)="delete()">Delete</button>
+      </div>
+    </mat-expansion-panel-header>
+  
+  
+    <div class="container-body">
+      <div class="container-form-group">
+        <div>
+          <mat-form-field>
+            <input matInput type="text" value="{{ computer.name }}" placeholder="computer name" />
+          </mat-form-field>
+        </div>
+        <div>
+          <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
+          <button mat-button  *ngIf="edit.expanded">Cancel</button>
+        </div>
+      </div>
+  
+      <div class="container-dateTime">
+        <mat-form-field>
+          <input matInput type="date" value="{{ introducedDate }}" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput type="time" value="{{ introducedHour }}" />
+        </mat-form-field>
+      </div>
+  
+      <div class="container-dateTime">
+        <mat-form-field>
+          <input matInput type="date" value="{{ discontinuedDate }}" />
+        </mat-form-field>
+  
+        <mat-form-field>
+          <input matInput type="time" value="{{ discontinuedHour }}" />
+        </mat-form-field>
+      </div>
+  
+      <div>
+        <mat-form-field>
+          <mat-label *ngIf="computer.company === null">Company</mat-label>
+          <mat-label *ngIf="computer.company !== null">{{ computer.company.name }}</mat-label>
+          <mat-select ([value])="computer.company.name">
+            <mat-option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  
+    </div>
+  
+  </mat-expansion-panel>

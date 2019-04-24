@@ -1,45 +1,33 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-$orange-cdb: #f05a26;
-$light-orange-cdb: #f56d3f;
-$grey-cdb: #151515;
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-.header-relative-component {
+    height: 60px;
+    padding: 0 16px;
 
-    .global {
-        font-family: 'Courier New', Courier, monospace;
-        height: 100px;
-    }
-    .titleText {
-        text-transform: uppercase;
-        font-size: 36px;
-        font-weight: bold;
-        text-align: center;
-        color: white;
-        line-height: 60px;
-    }
-    .title {
-        margin: 0 auto;
-        font-size: 45px;
-        font-weight: bold;
-        font-family: 'Courier New', Courier, monospace;
-    }
-    .buttons, .logged {
-        float: right;
-    }
-    .signup {
-        margin-left: 20px;
-        margin-right: 40px;
-    }
-    .signup, .login {
-        font-size: 20px;
-        background-color: $light-orange-cdb;
-    }
-    .example-spacer {
-        flex: 1 1 auto;
-    }
+    background-color: #f1f1f1;
+}
 
-    img{
-        max-height: 100px;
-    }
+.title {
+    font-size: 1.75em;
+}
+
+
+.title-symbol{
+    height: 85%;
+}
+
+img{
+    height: 100%;
+}
+
+.container-button :nth-child(1){
+    margin-right: 10px;
+}
+
+.container-button :nth-child(2){
+    margin-left: 10px;
 }

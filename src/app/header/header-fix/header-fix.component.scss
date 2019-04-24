@@ -1,24 +1,52 @@
-$orange-cdb: #f05a26;
-$light-orange-cdb: #f56d3f;
-$grey-cdb: #151515;
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
-#header-fix-component {
-    height: 70px;
-    background-color: #4b4c4c;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 16px;
+
+    background-color: white;
+    box-shadow: 0 4px 4px -2px #303030;
+
+    position: sticky;
+    top: 0;
+    z-index: 5;
 }
-.fixed {
-    line-height: 70px;
-    float: left;
+
+.container-search,
+.continaer-sort{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
 }
-.search {
+
+
+.container-search :nth-child(1){
+    margin-right: 5px;
+}
+
+.container-search :nth-child(2){
     margin-left: 5px;
 }
-.sortSelection {
-    line-height: 70px;
-    margin-right: 55px;
-    float: right;
+
+.container-sort :nth-child(1){
+    margin-right: 5px;
 }
 
-.fixed button, .sortSelection button{
-    background-color: $light-orange-cdb;
+.container-sort :nth-child(2){
+    margin-left: 5px;
+    margin-right: 5px;
 }
+
+.container-sort :nth-child(3){
+    margin-left: 5px;
+}
+
+.container-search :nth-child(n) :nth-child(n),
+.container-sort :nth-child(n) :nth-child(n) {
+    margin-right: 0;
+}
+
