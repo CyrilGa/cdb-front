@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Computer } from '../model/computer.model';
 import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
-import {SessionService} from '../../authentication/session.service';
+import { SessionService } from '../../authentication/session.service';
 
 @Component({
   selector: 'app-computer-details',
@@ -17,13 +17,9 @@ export class ComputerDetailsComponent {
   discontinuedHour: string;
   companies: Company[];
 
-<<<<<<< HEAD
-  isExpanded = false; 
+  isExpanded = false;
 
-  constructor(private api: ApiService) {}
-=======
-  constructor(private api: ApiService, private sessionService: SessionService) {}
->>>>>>> 238d14a4315ded717d58da80cb25a0076cb04fe8
+  constructor(private api: ApiService, private sessionService: SessionService) { }
 
   @Input()
   computer: Computer;
@@ -47,7 +43,7 @@ export class ComputerDetailsComponent {
 
   loadCompanies(): void {
     this.api.getCompanies().subscribe(
-      (companies) => this.companies = companies ,
+      (companies) => this.companies = companies,
       error => console.log(error)
     );
   }
@@ -56,13 +52,12 @@ export class ComputerDetailsComponent {
     this.deleteComputer.emit(this.computer.id);
   }
 
-<<<<<<< HEAD
-  invExpanded(){
+  invExpanded() {
     this.isExpanded = !this.isExpanded;
-=======
+  }
+
   getUserRole(): string {
     return this.sessionService.getUserRole();
->>>>>>> 238d14a4315ded717d58da80cb25a0076cb04fe8
   }
 
 }

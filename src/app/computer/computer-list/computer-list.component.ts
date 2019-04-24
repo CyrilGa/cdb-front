@@ -83,12 +83,9 @@ export class ComputerListComponent implements OnInit {
       error => console.log(error)
     );
   }
-<<<<<<< HEAD
-=======
 
   getUserRole(): string {
     return this.sessionService.getUserRole();
   }
 
->>>>>>> 238d14a4315ded717d58da80cb25a0076cb04fe8
 }
