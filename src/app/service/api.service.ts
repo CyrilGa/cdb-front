@@ -41,13 +41,9 @@ export class ApiService {
       finalUrl += 'computerName=' + params.searchName + '&';
     }
     finalUrl = finalUrl.substring(0, finalUrl.length - 1);
-    console.log(finalUrl);
 
     return this.http.get<Computer[]>(finalUrl, {
-      observe: 'response',
-      headers: new HttpHeaders({
-        Authorization: 'Bearer ' + this.sessionService.getUserToken()
-      })
+      observe: 'response'
     });
   }
 
@@ -76,9 +72,7 @@ export class ApiService {
   }
 
   getCompanies(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.COMPANY_API_URL, {
-      headers: this.getHttpHeaders()
-    });
+    return this.http.get<Company[]>(this.COMPANY_API_URL);
   }
 
   login(username: string, password: string): Observable<JwtToken> {

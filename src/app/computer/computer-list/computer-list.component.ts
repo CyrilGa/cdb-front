@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
+import {SessionService} from '../../authentication/session.service';
 
 
 @Component({
@@ -123,7 +124,7 @@ export class ComputerListComponent implements OnInit {
     }
   ];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private sessionService: SessionService) { }
 
   ngOnInit() {
     this.api.getComputers({}).subscribe(
@@ -190,6 +191,10 @@ export class ComputerListComponent implements OnInit {
       () => console.log('service'),
       error => console.log(error)
     );
+  }
+
+  getUserRole(): string {
+    return this.sessionService.getUserRole();
   }
 
 }

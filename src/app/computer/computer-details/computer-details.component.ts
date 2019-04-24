@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Computer } from '../model/computer.model';
 import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
+import {SessionService} from '../../authentication/session.service';
 
 @Component({
   selector: 'app-computer-details',
@@ -16,7 +17,7 @@ export class ComputerDetailsComponent {
   discontinuedHour: string;
   companies: Company[];
 
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private sessionService: SessionService) {}
 
   @Input()
   computer: Computer;
@@ -40,6 +41,10 @@ export class ComputerDetailsComponent {
 
   delete() {
     this.deleteComputer.emit(this.computer.id);
+  }
+
+  getUserRole(): string {
+    return this.sessionService.getUserRole();
   }
 
 }

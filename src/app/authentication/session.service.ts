@@ -13,6 +13,8 @@ export class SessionService {
 
   invalidateUser() {
     sessionStorage.removeItem(this.TOKEN_FIELD);
+    sessionStorage.removeItem(this.USERNAME_FIELD);
+    sessionStorage.removeItem(this.ROLE_FIELD);
   }
 
   saveUser(user: JwtToken) {

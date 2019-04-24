@@ -12,9 +12,9 @@
       <div class="container-table-row">
         <span>{{computer.company.name}}</span>
       </div>
-      <div class="container-table-row">
-        <button mat-button (click)="onEdit(computer)" *ngIf="!edit.expanded">Edit</button>
-        <button mat-button (click)="delete()">Delete</button>
+      <div class="container-table-row" *ngIf="(getUserRole() === 'USER' || getUserRole() === 'ADMIN')">
+        <button mat-button (click)="onEdit(computer)" *ngIf="!edit.expanded && (getUserRole() === 'USER' || getUserRole() === 'ADMIN')">Edit</button>
+        <button mat-button (click)="delete()" *ngIf="getUserRole() === 'ADMIN'">Delete</button>
       </div>
     </mat-expansion-panel-header>
   
