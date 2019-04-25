@@ -9,12 +9,15 @@
     <h1 class="title">COMPUTER DATABASE</h1>
 
     <div *ngIf="false; else elseBlock" style="margin-right: 25px;" class="logged">
-      <span>Welcome, User !</span>
+      <span [translate]="'welcomeUser'"></span>
     </div>
     <ng-template class="buttons" #elseBlock>
-        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">Login</button>
-        <button class="signup" mat-raised-button color="accent">Signup</button>
+        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">{{ 'button.login' | translate }}</button>
+        <button class="signup" mat-raised-button color="accent">{{ 'button.signup' | translate }}</button>
     </ng-template>
+
+    <button (click)="changeLanguage('fr')">FR</button>
+    <button (click)="changeLanguage('en')">EN</button>
 
   </mat-toolbar>
 

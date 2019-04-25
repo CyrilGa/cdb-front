@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input'; 
 import { MatSelectModule } from '@angular/material/select'; 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'; 
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [HeaderRelativeComponent, HeaderFixComponent, HeaderComponent],
@@ -19,7 +20,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     MatButtonModule,
     MatInputModule,
     MatSelectModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    TranslateModule
   ],
   exports: [HeaderComponent, HeaderFixComponent]
 })

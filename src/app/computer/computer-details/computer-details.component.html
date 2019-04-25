@@ -17,6 +17,6 @@
       <span *ngIf="!isEdit">{{computer.company.name}}</span>
     </mat-grid-tile>
     <mat-grid-tile id="container-button" [colspan]=1 [rowspan]=1>
-        <button mat-raised-button (click)="onEdit(computer)">Edit</button>
-        <button mat-raised-button (click)="delete()">Delete</button>
+        <button mat-raised-button (click)="onEdit(computer)">{{ 'button.edit' | translate }}</button>
+        <button mat-raised-button (click)="delete()">{{ 'button.delete' | translate }}</button>
     </mat-grid-tile>

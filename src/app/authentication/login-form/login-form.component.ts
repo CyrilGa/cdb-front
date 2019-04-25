@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
 import { ApiService } from '../../service/api.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-login-form',
@@ -10,7 +11,8 @@ export class LoginFormComponent implements OnInit {
   username = '';
   password = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService, private translate: TranslateService) {
+  }
 
   ngOnInit() {  }
 

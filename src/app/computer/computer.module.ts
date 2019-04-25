@@ -6,6 +6,7 @@ import { FooterModule } from '../footer/footer.module';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
 import {MatGridListModule} from '@angular/material';
 import { HeaderModule } from '../header/header.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HeaderModule } from '../header/header.module';
     FooterModule,
     CustomMaterialModule,
     MatGridListModule,
-    HeaderModule
+    HeaderModule,
+    TranslateModule
   ],
   exports: [
     ComputerListComponent,

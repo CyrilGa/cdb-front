@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer-relative',
@@ -7,7 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class FooterRelativeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private translate: TranslateService) {
+  }
 
   ngOnInit() {
   }

@@ -1,16 +1,16 @@
 <app-header-fix (sort)="changePage($event)"></app-header-fix>
 <mat-grid-list cols="5" rowHeight="30px">
   <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span>COMPUTER NAME</span>
+    <span [translate]="'topboard.nameComputer'"></span>
   </mat-grid-tile>
   <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span>INTRODUCED DATE</span>
+    <span [translate]="'topboard.introducedComputer'"></span>
   </mat-grid-tile>
   <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span>DISCONTINUED DATE</span>
+    <span [translate]="'topboard.discontinuedComputer'"></span>
   </mat-grid-tile>
   <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span>COMPANY NAME</span>
+    <span [translate]="'topboard.companyNameComputer'"></span>
   </mat-grid-tile>
 </mat-grid-list>
 <div id="computers">

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-footer-fix',
@@ -14,7 +15,7 @@ export class FooterFixComponent implements OnInit {
   currentPage: number;
   numberOfElements: number;
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.currentPage = 0;
     this.numberOfElements = 10;
   }

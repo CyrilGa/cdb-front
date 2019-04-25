@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Computer} from '../model/computer.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-computer-details',
@@ -18,6 +19,9 @@ export class ComputerDetailsComponent {
   computer: Computer;
 
   @Output() deleteComputer = new EventEmitter();
+
+  constructor(private translate: TranslateService) {
+  }
 
   onEdit(computer: Computer): void {
     this.isEdit = !this.isEdit;

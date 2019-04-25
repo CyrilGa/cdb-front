@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -117,7 +118,8 @@ export class ComputerListComponent implements OnInit {
   computers: Computer[] = [];
   maxPage: number;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private translate: TranslateService) {
+  }
 
   ngOnInit() {
     /*this.api.getComputers({}).subscribe(
