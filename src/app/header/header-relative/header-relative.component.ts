@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {TranslateService} from '@ngx-translate/core';
 import {SessionService} from '../../authentication/session.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class HeaderRelativeComponent {
 
   constructor(private router: Router, private translate: TranslateService, private sessionService: SessionService) {
   }
-  
+
   logout() {
     this.sessionService.invalidateUser();
     this.router.navigateByUrl('/?refresh=1');
@@ -24,9 +24,5 @@ export class HeaderRelativeComponent {
 
   isLoggedIn(): boolean {
     return this.sessionService.getUserToken() !== null;
-  }
-
-  ngOnInit() {
-    let isLogged: boolean = false;
   }
 }
