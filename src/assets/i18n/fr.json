@@ -8,7 +8,7 @@
 	},
 	"searchField": "recherche",
 	"sort": {
-		"selection": "Selection",
+		"selection": "Sélection",
 		"nameComputer": "Nom",
 		"introducedComputer": "Debut",
 		"discontinuedComputer": "Arret",

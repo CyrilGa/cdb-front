@@ -14,7 +14,9 @@
 .title {
     font-size: 1.75em;
 }
-
+.login, .signup {
+    width: 100px;
+}
 
 .title-symbol{
     height: 85%;
@@ -23,11 +25,28 @@
 img{
     height: 100%;
 }
-
-.container-button :nth-child(1){
+.flagsFr {
+    flex: none;
+    margin-right:45px;
+}
+.flagsEn {
+    margin-right: 85px;
+}
+.flags mat-icon {
+    width:inherit;
+    height:100%;
+}
+.container-button :nth-child(3){
     margin-right: 10px;
 }
 
-.container-button :nth-child(2){
+.container-button :nth-child(4){
     margin-left: 10px;
+}
+.i18n img {
+    width: 50px;
+    height: 50px;
+}
+.i18n {
+
 }
