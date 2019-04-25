@@ -1,19 +1,24 @@
-<app-header-fix (sort)="changePage($event)"></app-header-fix>
-<mat-grid-list cols="5" rowHeight="30px">
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span [translate]="'topboard.nameComputer'"></span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span [translate]="'topboard.introducedComputer'"></span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span [translate]="'topboard.discontinuedComputer'"></span>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]=1 [rowspan]=1>
-    <span [translate]="'topboard.companyNameComputer'"></span>
-  </mat-grid-tile>
-</mat-grid-list>
-<div id="computers">
-    <app-computer-details *ngFor="let computer of computers" [computer] = "computer" (deleteComputer)="deleteComputer($event)"></app-computer-details>
+<app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
+
+<div class="container">
+  <div>
+    <span [translate]="'topboard.nameComputer'">COMPUTER NAME</span>
+  </div>
+  <div>
+    <span [translate]="'topboard.introducedComputer'">INTRODUCED DATE</span>
+  </div>
+  <div>
+    <span [translate]="'topboard.discontinuedComputer'">DISCONTINUED DATE</span>
+  </div>
+  <div>
+    <span [translate]="'topboard.companyNameComputer'">COMPANY NAME</span>
+  </div>
+  <div *ngIf="(getUserRole() === 'ADMIN')">
+  </div>
 </div>
-<app-footer-fix [maxPage]="maxPage" (pagination)="changePage($event)"></app-footer-fix>
+
+<div id="computers">
+  <app-computer-details *ngFor="let computer of computers" [computer]="computer"
+    (deleteComputer)="deleteComputer($event)"></app-computer-details>
+</div>
+<app-footer-fix [maxPage]="maxPage" [currentPage]="currentPage" (changePage)="changePage($event)" (changeNumberOfElements)="changeElements($event)"></app-footer-fix>

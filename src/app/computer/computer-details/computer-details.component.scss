@@ -1,22 +1,67 @@
-#container{
+.container{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: baseline;
+    justify-content: space-around;
+    align-items: center;
 
-    background-color: inherit;
-    border-radius: 5px;
-    padding: 0 10px;
-    margin: 0px 10px;
     margin: 0 10%;
+    background-color: inherit;
 }
 
-#container-button :nth-child(n){
-    margin: 0 10px;
+.container-panel{
+    background-color: inherit;
+    width: 100%;
+
+    box-shadow: none;
+}
+
+.container-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: 5px;
+    padding: 0 0;
+}
+
+.container-table-row{
+    text-align: center;
+    align-self: baseline;
+    width: 25%;
 }
 
 span{
     color: black;
     font-size: 1.05em;
     font-weight: 500;
+}
+
+.container-body{
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+.container-dateTime :nth-child(1){
+    padding-right: 5px;
+}
+
+.container-dateTime :nth-child(2){
+    padding-left: 5px;
+}
+
+.container-button-header{
+    width: 20%;
+    text-align: center;
+}
+
+.container-button-header :nth-child(1){
+    margin: 0 5px;
+}
+
+.container-button-header :nth-child(2){
+    margin: 0 5px;
+    background-color: #f37575;
+    color: white;
 }

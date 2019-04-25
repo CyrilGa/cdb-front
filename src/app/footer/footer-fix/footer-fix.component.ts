@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output, Input} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output, Input, OnChanges, SimpleChanges} from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -10,9 +10,12 @@ export class FooterFixComponent implements OnInit {
 
   @Input() maxPage: number;
 
-  @Output() pagination = new EventEmitter();
+  @Input() currentPage: number;
 
-  currentPage: number;
+  @Output() changePage = new EventEmitter();
+
+  @Output() changeNumberOfElements = new EventEmitter();
+
   numberOfElements: number;
 
   constructor(private translate: TranslateService) {
@@ -23,37 +26,25 @@ export class FooterFixComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendPagination() {
-    this.pagination.emit({
-      numberOfElements: this.numberOfElements,
-      desiredPage: this.currentPage
-    });
-  }
-
   getFirstPage() {
-    this.currentPage = 0;
-    this.sendPagination();
+    this.changePage.emit(0);
   }
 
   getLastPage() {
-    this.currentPage = this.maxPage;
-    this.sendPagination();
+    this.changePage.emit(this.maxPage);
   }
 
   getPreviousPage() {
-    this.currentPage = this.currentPage === 0 ? 0 : this.currentPage - 1;
-    this.sendPagination();
+    this.changePage.emit(this.currentPage === 0 ? 0 : this.currentPage - 1);
   }
 
   getNextPage() {
-    this.currentPage = this.currentPage === this.maxPage ? this.maxPage : this.currentPage + 1;
-    this.sendPagination();
+    this.changePage.emit(this.currentPage === this.maxPage ? this.maxPage : this.currentPage + 1);
   }
 
   setNumberOfElements(elements: number) {
     this.numberOfElements = elements;
-    this.currentPage = 0;
-    this.sendPagination();
+    this.changeNumberOfElements.emit(this.numberOfElements);
   }
 
 }

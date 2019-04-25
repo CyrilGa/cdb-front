@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-title>Register</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="register()">
+      <mat-form-field class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput name="username" (ngModelChange)="onUsernameInputChange($event)" [(ngModel)]="username">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" name="password" (ngModelChange)="onPasswordInputChange($event)" [(ngModel)]="password">
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <mat-label>Repeat password</mat-label>
+        <input matInput type="password" name="password" (ngModelChange)="onPasswordRepeatInputChange($event)" [(ngModel)]="passwordRepeat">
+      </mat-form-field>
+      <button mat-raised-button [disabled]="!canRegister()" color="accent">Register</button>
+    </form>
+  </mat-card-content>
+</mat-card>

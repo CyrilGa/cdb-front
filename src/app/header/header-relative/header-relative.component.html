@@ -1,24 +1,26 @@
-<div class="header-relative-component">
+<div class="container">
 
-  <mat-toolbar class="global">  
+  <div class="title-symbol">
+    <a [routerLink]="['/']">
+      <img src="../../assets/logo-new.png" alt=""/>
+    </a>
+  </div>
 
-    <div class="titleSymbol">
-        <img src="../../assets/cdb-logo.png" alt=""/>
-    </div>       
+  <h1 class="title">
+    <a>COMPUTER DATABASE</a>
+  </h1>
 
-    <h1 class="title">COMPUTER DATABASE</h1>
-
-    <div *ngIf="false; else elseBlock" style="margin-right: 25px;" class="logged">
-      <span [translate]="'welcomeUser'"></span>
+  <div>
+    <div class="container-button" *ngIf="!isLoggedIn()">
+      <button [routerLink]="['/login']" class="login" mat-raised-button color="primary">{{ 'button.login' | translate }}</button>
+      <button [routerLink]="['/register']" class="signup" mat-raised-button color="accent">{{ 'button.signup' | translate }}</button>
     </div>
-    <ng-template class="buttons" #elseBlock>
-        <button (click)="goToLogin();" class="login" mat-raised-button color="primary">{{ 'button.login' | translate }}</button>
-        <button class="signup" mat-raised-button color="accent">{{ 'button.signup' | translate }}</button>
-    </ng-template>
 
-    <button (click)="changeLanguage('fr')">FR</button>
-    <button (click)="changeLanguage('en')">EN</button>
-
-  </mat-toolbar>
+    <div class="container-button" *ngIf="isLoggedIn()">
+      <button (click)="logout();" class="login" mat-raised-button color="accent">Logout</button>
+    </div>
+  </div>
+  <button (click)="changeLanguage('fr')">FR</button>
+  <button (click)="changeLanguage('en')">EN</button>
 
 </div>

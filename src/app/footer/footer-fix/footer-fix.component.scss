@@ -1,0 +1,24 @@
+.footer-fix {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 100px;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  position: sticky;
+  bottom: 0;
+
+  background-color: #FFFFFF;
+  box-shadow: 0 -4px 4px -2px #303030;
+}
+
+.navigation-links {
+  margin: auto;
+}
+
+.page-size-selector {
+  position: absolute;
+  right: 20px;
+}

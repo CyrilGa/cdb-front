@@ -1,6 +1,10 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
-import { ApiService } from '../../service/api.service';
 import { TranslateService } from '@ngx-translate/core';
+import {ApiService} from '../../service/api.service';
+import {Router} from '@angular/router';
+import {SessionService} from '../session.service';
+import {MatSnackBar} from '@angular/material';
+import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-login-form',
@@ -11,15 +15,31 @@ export class LoginFormComponent implements OnInit {
   username = '';
   password = '';
 
-  constructor(private apiService: ApiService, private translate: TranslateService) {
+  constructor(private snackBar: MatSnackBar,
+              private apiService: ApiService,
+              private sessionService: SessionService,
+              private router: Router,
+              private translate: TranslateService) {
   }
 
-  ngOnInit() {  }
+  ngOnInit() {
+    if (this.sessionService.getUserToken() !== null) {
+      this.router.navigate(['/']);
+    }
+  }
 
   login() {
-    this.apiService.getCompanies().subscribe((response) => console.log(response));
+    this.apiService.login(this.username, this.password).subscribe(response => {
+      this.sessionService.saveUser(response);
+      this.router.navigate(['/']);
+    }, error => {
+      this.sessionService.invalidateUser();
 
-    this.apiService.login(this.username, this.password).subscribe((response) => console.log(response));
+      this.snackBar.openFromComponent(SnackbarComponent, {
+        duration: 5 * 1000,
+        panelClass: ['snackbar-error'],
+        data: 'Incorrect login/password'
+      });
+    });
   }
-
 }

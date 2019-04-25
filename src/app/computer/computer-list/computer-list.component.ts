@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
 import { TranslateService } from '@ngx-translate/core';
+import {SessionService} from '../../authentication/session.service';
+import {MatSnackBar} from '@angular/material';
+import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
 
 
 @Component({
@@ -12,141 +15,90 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class ComputerListComponent implements OnInit {
 
-  Mock = [
-    {
-        id: 18,
-        name: 'COSMAC ELF',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: 3,
-            name: 'RCA'
-        }
-    },
-    {
-        id: 19,
-        name: 'COSM',
-        introduced: '1977-01-02 01:00',
-        discontinued: '',
-        company: {
-            id: 3,
-            name: 'RCA'
-        }
-    },
-    {
-        id: 20,
-        name: 'ELF II',
-        introduced: '1977-01-01 01:00',
-        discontinued: '',
-        company: {
-            id: 4,
-            name: 'Netronics'
-        }
-    },
-    {
-        id: 22,
-        name: 'Macintosh II',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 24,
-        name: 'Macintosh IIfx',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 30,
-        name: 'Xserve',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 31,
-        name: 'Powerbook 100',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 32,
-        name: 'Powerbook 140',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 33,
-        name: 'Powerbook 170',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    },
-    {
-        id: 34,
-        name: 'PowerBook Duo',
-        introduced: '',
-        discontinued: '',
-        company: {
-            id: null,
-            name: null
-        }
-    }
-  ];
-
   computers: Computer[] = [];
-  maxPage: number;
 
-  constructor(private api: ApiService, private translate: TranslateService) {
+  maxPage: number;
+  currentPage: number;
+  elements: number;
+
+  searchName: string;
+  sort: any;
+
+  constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar, private translate: TranslateService) {
   }
 
   ngOnInit() {
-    /*this.api.getComputers({}).subscribe(
-      (rslt) => {
-        this.computers = rslt.body;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );*/
-    this.Mock.forEach(computer => this.computers.push(computer));
+    this.currentPage = 0;
+    this.searchName = null;
+    this.sort = null;
+    this.getComputers();
   }
 
+  getComputers() {
+    const params = {
+      numberOfElements: this.elements,
+      desiredPage: this.currentPage,
+      sort: this.sort,
+      searchName: this.searchName
+    };
+    this.api.getComputers(params).subscribe(
+      result => {
+        this.computers = result.body;
+        this.maxPage = +result.headers.get('MaxPageId');
+      }
+    );
+  }
 
   changePage($event) {
-    this.api.getComputers($event).subscribe(
-      result => {this.computers = result.body;
-                 console.log(result.headers.get('MaxPageId'));
-                 this.maxPage = +result.headers.get('MaxPageId'); },
-      error => console.log(error)
-    );
+    console.log('change page: ' + $event);
+    this.currentPage = $event;
+    this.getComputers();
+  }
+
+  changeElements($event) {
+    console.log('change elements: ' + $event);
+    this.elements = $event;
+    this.currentPage = 0;
+    this.getComputers();
+  }
+
+  changeSort($event) {
+    console.log('change sort: ' + $event);
+    this.sort = $event;
+    this.currentPage = 0;
+    this.getComputers();
+  }
+
+  changeSearch($event) {
+    console.log('change search: ' + $event);
+    this.searchName = $event;
+    this.currentPage = 0;
+    this.getComputers();
   }
 
   deleteComputer($event) {
     this.api.deleteComputer($event).subscribe(
-      () => console.log('service'),
+      response => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: 5 * 1000,
+          panelClass: ['snackbar', 'snackbar-success'],
+          data: 'Successfully deleted computer'
+        });
+        this.getComputers();
+      },
       error => console.log(error)
     );
   }
+
+  getUserRole(): string {
+    return this.sessionService.getUserRole();
+  }
+
+  saveComputer($event) {
+    this.api.editComputer($event).subscribe(
+      () => this.getComputers(),
+      error => console.log(error)
+    );
+  }
+
 }
