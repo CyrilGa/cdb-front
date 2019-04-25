@@ -4,6 +4,7 @@ import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
 import { SessionService } from '../../authentication/session.service';
 import { ComputerEdit } from '../model/computerEdit.model';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-computer-details',
@@ -29,8 +30,16 @@ export class ComputerDetailsComponent {
   };
 
   isExpanded = false;
+  
+  companyForm: FormGroup;
 
-  constructor(private api: ApiService, private sessionService: SessionService) { }
+  constructor(private api: ApiService, private sessionService: SessionService, private formBuilder: FormBuilder) { };
+
+  ngOnInit() {
+    this.companyForm = this.formBuilder.group({
+      companyControl: [this.computerEdit.company.name]
+    });
+   }
 
   @Input()
   computer: Computer;
@@ -41,13 +50,14 @@ export class ComputerDetailsComponent {
 
   onEdit(computer: Computer): void {
     this.loadCompanies();
-    let e: HTMLInputElement;
     this.computerEdit.name = this.computer.name;
     this.computerEdit.introducedDate = this.computer.introduced.substring(0, 10);
     this.computerEdit.introducedHour = this.computer.introduced.substring(11);
     this.computerEdit.discontinuedDate = this.computer.discontinued.substring(0, 10);
     this.computerEdit.discontinuedHour = this.computer.discontinued.substring(11);
     this.computerEdit.company.name = this.computer.company.name;
+    this.companyForm.controls["companyControl"].patchValue(this.computerEdit.company.name);
+    console.log(this.computerEdit)
   }
 
   loadCompanies(): void {
