@@ -30,3 +30,8 @@ span{
     font-size: 1.10m;
     font-weight: 400;
 }
+
+#computer-table {
+  // [header fix] - [header relative] - [footer fix] - [footer relative]
+  min-height: calc(100vh - 70px - 60px - 40px - 50px);
+}

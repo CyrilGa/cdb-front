@@ -3,6 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 70px;
 
     font-family: 'Courier New', Courier, monospace;
     padding: 0 16px;
@@ -11,6 +12,7 @@
     box-shadow: 0 4px 4px -2px #303030;
 
     position: sticky;
+    position: -webkit-sticky;
     top: 0;
     z-index: 5;
 }
