@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Computer} from '../model/computer.model';
 import {ApiService} from '../../service/api.service';
+import { TranslateService } from '@ngx-translate/core';
 import {SessionService} from '../../authentication/session.service';
 import {MatSnackBar} from '@angular/material';
 import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
@@ -23,7 +24,7 @@ export class ComputerListComponent implements OnInit {
   searchName: string;
   sort: any;
 
-  constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
+  constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar, private translate: TranslateService) {
   }
 
   ngOnInit() {

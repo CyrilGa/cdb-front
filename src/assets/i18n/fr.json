@@ -1,0 +1,29 @@
+{
+	"welcomeUser": "Bienvenue Utilisateur",
+	"button": {
+		"login": "Connexion",
+		"signup": "Inscription",
+		"edit": "Modifier",
+		"delete": "Supprimer"
+	},
+	"searchField": "recherche",
+	"sort": {
+		"selection": "Sélection",
+		"nameComputer": "Nom",
+		"introducedComputer": "Debut",
+		"discontinuedComputer": "Arret",
+		"companyNameComputer": "Nom de l'Entreprise"
+	},
+	"copyright": "Copyright || Touts Droits reserves",
+	"topboard": {
+		"nameComputer": "NOM DE L'ORDINATEUR",
+		"introducedComputer": "DATE DE DEBUT",
+		"discontinuedComputer": "DATE DE FIN",
+		"companyNameComputer": "NOM DE L'ENTREPRISE"
+	},
+	"auth": {
+		"login": "Connexion",
+		"username": "nom de l'utilisateur",
+		"password": "mot de passe"
+	}
+}

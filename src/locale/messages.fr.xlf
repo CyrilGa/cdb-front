@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="searchInput" datatype="html">
+        <source><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>search<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></source>
+        <target><x id="START_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;i&gt;"/>recherche...<x id="CLOSE_ITALIC_TEXT" ctype="x-i" equiv-text="&lt;/i&gt;"/></target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="select" datatype="html">
+        <source>Selection</source>
+        <target>Sélection</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="nameSelect" datatype="html">
+        <source>Name</source>
+        <target>Nom</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="introductionSelect" datatype="html">
+        <source>Introduced</source>
+        <target>Introduction</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="discontinuedSelect" datatype="html">
+        <source>Discontinued</source>
+        <target>Arrêt</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="companyNameSelect" datatype="html">
+        <source>Company Name</source>
+        <target>Nom Companie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-fix/header-fix.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="firstPage" datatype="html">
+        <source>First</source>
+        <target>Première</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer-fix/footer-fix.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="lastPage" datatype="html">
+        <source>Last</source>
+        <target>Dernière</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer-fix/footer-fix.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="copyright" datatype="html">
+        <source>Copyrigth || All rights reserved</source>
+        <target>Copyright || Tout droits réservés</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/footer/footer-relative/footer-relative.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="computerName" datatype="html">
+        <source>COMPUTER NAME</source>
+        <target>NOM ORDINATEUR</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-list/computer-list.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="computerIntroduced" datatype="html">
+        <source>INTRODUCED DATE</source>
+        <target>DATE D'INTRODUCTION</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-list/computer-list.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="computerDiscontinued" datatype="html">
+        <source>DISCONTINUED DATE</source>
+        <target>DATE D'ARRÊT</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-list/computer-list.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="computerCompanyName" datatype="html">
+        <source>COMPANY NAME</source>
+        <target>NOM COMPANIE</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-list/computer-list.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editComputer" datatype="html">
+        <source>Edit</source>
+        <target>Modifier</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-details/computer-details.component.html</context>
+          <context context-type="linenumber">20</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="deleteComputer" datatype="html">
+        <source>Delete</source>
+        <target>Supprimer</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/computer/computer-details/computer-details.component.html</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginTitle" datatype="html">
+        <source>Login</source>
+        <target>Connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="username" datatype="html">
+        <source>Username</source>
+        <target>Nom d'utilisateur</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="password" datatype="html">
+        <source>Password</source>
+        <target>Mot de passe</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginButtonForm" datatype="html">
+        <source>Login</source>
+        <target>Connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/authentication/login-form/login-form.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="welcomeUser" datatype="html">
+        <source>Welcome, User !</source>
+        <target>Bienvenue, utilisateur !</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-relative/header-relative.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="loginButton" datatype="html">
+        <source>Login</source>
+        <target>Connexion</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-relative/header-relative.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signupButton" datatype="html">
+        <source>Signup</source>
+        <target>Inscription</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/header/header-relative/header-relative.component.html</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

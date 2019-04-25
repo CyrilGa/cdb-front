@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build-i18n:fr": "ng build --output-path=dist/browser/fr --aot --prod --i18n-file=src/locale/messages.fr.xlf --i18n-format=xlf --i18n-locale=fr",
+    "build-i18n:en": "ng build --output-path=dist/browser/en --aot --prod --i18n-format=xlf --i18n-locale=en",
+    "build-i18n": "npm run build-i18n:fr && npm run build-i18n:en"
   },
   "private": true,
   "dependencies": {
@@ -21,8 +24,10 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
+    "rxjs": "^6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },

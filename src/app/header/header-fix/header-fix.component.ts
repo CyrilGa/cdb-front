@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ChangeDetectorRef } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header-fix',
@@ -17,10 +18,15 @@ export class HeaderFixComponent implements OnInit {
   isAsc: boolean;
   searchName: string;
 
-  constructor() { }
+  constructor(private translate: TranslateService, private cd: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
     this.isAsc = true;
+  }
+
+  ngAfterViewChecked() {
+    this.cd.detectChanges();
   }
 
   toggleAsc() {

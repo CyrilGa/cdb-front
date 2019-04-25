@@ -4,6 +4,7 @@ import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
 import { SessionService } from '../../authentication/session.service';
 import { ComputerEdit } from '../model/computerEdit.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-computer-details',
@@ -30,7 +31,7 @@ export class ComputerDetailsComponent {
 
   isExpanded = false;
 
-  constructor(private api: ApiService, private sessionService: SessionService) { }
+  constructor(private api: ApiService, private sessionService: SessionService, private translate: TranslateService) { }
 
   @Input()
   computer: Computer;

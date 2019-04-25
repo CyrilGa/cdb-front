@@ -37,7 +37,13 @@
 .container-sort :nth-child(1){
     margin-right: 5px;
 }
-
+.selectField {
+    margin-right: 30px;
+}
+.fixed {
+    line-height: 70px;
+    float: left;
+}
 .container-sort :nth-child(2){
     margin-left: 5px;
     margin-right: 5px;

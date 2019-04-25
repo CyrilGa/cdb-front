@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { CustomMaterialModule } from '../custom-material/custom-material.module';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { RegisterFormComponent } from './register-form/register-form.component';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { RegisterFormComponent } from './register-form/register-form.component';
   imports: [
     CommonModule,
     CustomMaterialModule,
-    FormsModule
+    FormsModule,
+    TranslateModule
   ],
   exports: [
     LoginFormComponent,

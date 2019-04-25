@@ -3,16 +3,16 @@
 <div id="computer-table">
   <div class="container">
     <div>
-      <span>COMPUTER NAME</span>
+      <span [translate]="'topboard.nameComputer'"></span>
     </div>
     <div>
-      <span>INTRODUCED DATE</span>
+      <span [translate]="'topboard.introducedComputer'"></span>
     </div>
     <div>
-      <span>DISCONTINUED DATE</span>
+      <span [translate]="'topboard.discontinuedComputer'"></span>
     </div>
     <div>
-      <span>COMPANY NAME</span>
+      <span [translate]="'topboard.companyNameComputer'"></span>
     </div>
     <div *ngIf="(getUserRole() === 'ADMIN')">
     </div>
