@@ -1,34 +1,18 @@
 <app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
 
-<<<<<<< HEAD
-<div class="container">
-  <div>
-    <span [translate]="'topboard.nameComputer'">COMPUTER NAME</span>
-  </div>
-  <div>
-    <span [translate]="'topboard.introducedComputer'">INTRODUCED DATE</span>
-  </div>
-  <div>
-    <span [translate]="'topboard.discontinuedComputer'">DISCONTINUED DATE</span>
-  </div>
-  <div>
-    <span [translate]="'topboard.companyNameComputer'">COMPANY NAME</span>
-  </div>
-  <div *ngIf="(getUserRole() === 'ADMIN')">
-=======
 <div id="computer-table">
   <div class="container">
     <div>
-      <span>COMPUTER NAME</span>
+      <span [translate]="'topboard.nameComputer'"></span>
     </div>
     <div>
-      <span>INTRODUCED DATE</span>
+      <span [translate]="'topboard.introducedComputer'"></span>
     </div>
     <div>
-      <span>DISCONTINUED DATE</span>
+      <span [translate]="'topboard.discontinuedComputer'"></span>
     </div>
     <div>
-      <span>COMPANY NAME</span>
+      <span [translate]="'topboard.companyNameComputer'"></span>
     </div>
     <div *ngIf="(getUserRole() === 'ADMIN')">
     </div>
@@ -37,7 +21,6 @@
   <div id="computers">
     <app-computer-details *ngFor="let computer of computers" [computer]="computer"
       (deleteComputer)="deleteComputer($event)"></app-computer-details>
->>>>>>> bbe304780171f22cca05836cc5a9354176d303d7
   </div>
 </div>
 
