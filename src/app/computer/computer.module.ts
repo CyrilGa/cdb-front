@@ -7,12 +7,14 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
 import { MatGridListModule } from '@angular/material';
 import { HeaderModule } from '../header/header.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ComputerFormComponent } from './computer-form/computer-form.component';
 
 
 @NgModule({
   declarations: [
     ComputerListComponent,
-    ComputerDetailsComponent
+    ComputerDetailsComponent,
+    ComputerFormComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   ],
   exports: [
     ComputerListComponent,
-    ComputerDetailsComponent
+    ComputerDetailsComponent,
+    ComputerFormComponent
   ]
 })
 export class ComputerModule { }

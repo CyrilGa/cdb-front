@@ -4,6 +4,7 @@ import {ApiService} from '../../service/api.service';
 import {SessionService} from '../../authentication/session.service';
 import {MatSnackBar} from '@angular/material';
 import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
+import { Company } from '../model/company.model';
 
 
 @Component({
@@ -22,6 +23,10 @@ export class ComputerListComponent implements OnInit {
 
   searchName: string;
   sort: any;
+
+  isAddToggled = false;
+
+  companies: Company[];
 
   constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
   }
@@ -100,4 +105,22 @@ export class ComputerListComponent implements OnInit {
     );
   }
 
+  toggleAdd(){
+    this.loadCompanies();
+    this.isAddToggled = !this.isAddToggled;
+  }
+
+  loadCompanies(): void {
+    this.api.getCompanies().subscribe(
+      (companies) => this.companies = companies,
+      error => console.log(error)
+    );
+  }
+
+  addComputer($event){
+    this.api.postComputer($event).subscribe(
+      () => this.getComputers(),
+      error => console.log(error)
+    );
+  }
 }

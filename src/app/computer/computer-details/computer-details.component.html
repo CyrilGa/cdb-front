@@ -1,6 +1,6 @@
 <div class="container">
 
-  <mat-expansion-panel class="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
+  <mat-expansion-panel [ngClass]="(getUserRole() === 'ADMIN')? 'fal fa-cogs fa-5x blink':'fal fa-cogs fa-5x'"="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
     <mat-expansion-panel-header class="container-header" *ngIf="!edit.expanded">
       <div class="container-table-row">
         <span>{{computer.name}}</span>
@@ -20,56 +20,59 @@
     <div class="container-body">
       <div>
         <mat-form-field>
-          <input matInput type="text" ([ngModel])="computerEdit.name" value="{{ computerEdit.name }}"
-            placeholder="computer name" />
+          <input matInput type="text" [ngModel]="computerEdit.name" (ngModelChange)="computerEdit.name = $event"
+            value="{{ computerEdit.name }}" placeholder="computer name" />
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput type="date" ([ngModel])="computerEdit.introducedDate"
-            value="{{ computerEdit.introducedDate }}" />
+          <input matInput type="date" [ngModel]="computerEdit.introducedDate"
+            (ngModelChange)="computerEdit.introducedDate = $event" value="{{ computerEdit.introducedDate }}" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="time" ([ngModel])="computerEdit.introducedHour"
-            value="{{ computerEdit.introducedHour }}" />
+          <input matInput type="time" [ngModel]="computerEdit.introducedHour"
+            (ngModelChange)="computerEdit.introducedHour = $event" value="{{ computerEdit.introducedHour }}" />
         </mat-form-field>
       </div>
 
       <div class="container-dateTime">
         <mat-form-field>
-          <input matInput type="date" ([ngModel])="computerEdit.discontinuedDate"
-            value="{{ computerEdit.discontinuedDate }}" />
+          <input matInput type="date" [ngModel]="computerEdit.discontinuedDate"
+            (ngModelChange)="computerEdit.discontinuedDate = $event" value="{{ computerEdit.discontinuedDate }}" />
         </mat-form-field>
 
         <mat-form-field>
-          <input matInput type="time" ([ngModel])="computerEdit.discontinuedHour"
-            value="{{ computerEdit.discontinuedHour }}" />
+          <input matInput type="time" [ngModel]="computerEdit.discontinuedHour"
+            (ngModelChange)="computerEdit.discontinuedHour = $event" value="{{ computerEdit.discontinuedHour }}" />
         </mat-form-field>
       </div>
 
       <div>
-          <mat-form-field [formGroup]="companyForm">
-            <mat-label>Company</mat-label>
+        <mat-form-field [formGroup]="companyForm">
+          <mat-label>Company</mat-label>
 
-            <mat-select formControlName="companyControl" ([ngModel])="computerEdit.company.name">
-              <mat-option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</mat-option>
-            </mat-select>
+          <mat-select formControlName="companyControl" [ngModel]="computerEdit.company.name"
+            (ngModelChange)="computerEdit.company.name = $event">
+            <mat-option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</mat-option>
+          </mat-select>
 
-          </mat-form-field>
+        </mat-form-field>
       </div>
 
     </div>
 
   </mat-expansion-panel>
 
-  <div class="container-button-header" *ngIf="(getUserRole() === 'ADMIN')">
-    <button mat-button (click)="onEdit(); invExpanded()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Edit
+  <div class="container-button" *ngIf="!edit.expanded && (getUserRole() === 'ADMIN')">
+    <button mat-button (click)="onEdit(); invExpanded()">Edit
     </button>
-    <button mat-button (click)="delete()" *ngIf="!edit.expanded && getUserRole() === 'ADMIN'">Delete</button>
-    <button mat-button (click)="save()" *ngIf="edit.expanded">Save</button>
-    <button mat-button (click)=" invExpanded()" *ngIf="edit.expanded">Cancel</button>
+    <button mat-button (click)="delete()">Delete</button>
+  </div>
+  <div class="container-button container-button-bottom" *ngIf="edit.expanded &&(getUserRole() === 'ADMIN')">
+    <button mat-button (click)="save()">Save</button>
+    <button mat-button (click)=" invExpanded()">Cancel</button>
   </div>
 
 </div>

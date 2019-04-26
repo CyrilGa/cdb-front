@@ -14,23 +14,23 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class ComputerDetailsComponent {
 
   companies: Company[];
-  
-  computerEdit: ComputerEdit = 
-  {
-    id: -1,
-    name: "",
-    introducedDate: "",
-    introducedHour: "",
-    discontinuedDate: "",
-    discontinuedHour: "",
-    company: {
+
+  computerEdit: ComputerEdit =
+    {
       id: -1,
-      name: ""
-    }
-  };
+      name: "",
+      introducedDate: "",
+      introducedHour: "",
+      discontinuedDate: "",
+      discontinuedHour: "",
+      company: {
+        id: -1,
+        name: ""
+      }
+    };
 
   isExpanded = false;
-  
+
   companyForm: FormGroup;
 
   constructor(private api: ApiService, private sessionService: SessionService, private formBuilder: FormBuilder) { };
@@ -39,7 +39,7 @@ export class ComputerDetailsComponent {
     this.companyForm = this.formBuilder.group({
       companyControl: [this.computerEdit.company.name]
     });
-   }
+  }
 
   @Input()
   computer: Computer;
@@ -57,7 +57,6 @@ export class ComputerDetailsComponent {
     this.computerEdit.discontinuedHour = this.computer.discontinued.substring(11);
     this.computerEdit.company.name = this.computer.company.name;
     this.companyForm.controls["companyControl"].patchValue(this.computerEdit.company.name);
-    console.log(this.computerEdit)
   }
 
   loadCompanies(): void {
@@ -80,19 +79,27 @@ export class ComputerDetailsComponent {
   }
 
   save() {
-    let computerName = (<HTMLInputElement>document.getElementById("computerNameInput")).value;
+    let computerName = this.computerEdit.name;
 
     let introduced =
-      (<HTMLInputElement>document.getElementById("introducedDateInput")).value
+      this.computerEdit.introducedDate
       + " "
-      + (<HTMLInputElement>document.getElementById("introducedHourInput")).value;
+      + this.computerEdit.introducedHour;
+    
+    if (introduced === " "){
+      introduced = "";
+    }
 
     let discontinued =
-      (<HTMLInputElement>document.getElementById("discontinuedDateInput")).value
+      this.computerEdit.discontinuedDate
       + " "
-      + (<HTMLInputElement>document.getElementById("discontinuedHourInput")).value;
+      + this.computerEdit.discontinuedHour;
 
-    let companyName = (<HTMLInputElement>document.getElementById("companyName")).value;
+      if (discontinued === " "){
+        discontinued = "";
+      }
+
+    let companyName = this.computerEdit.company.name;
 
     let computer: Computer = {
       id: this.computer.id,
@@ -105,7 +112,14 @@ export class ComputerDetailsComponent {
       }
     }
 
-    this.saveComputer.emit(computer);
+    this.computer = computer;
+    this.invExpanded();
+
+    setTimeout(() => this.saveComputer.emit(computer), 1000);
+
+
   }
+
+  
 
 }

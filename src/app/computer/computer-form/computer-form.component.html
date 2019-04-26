@@ -1,0 +1,53 @@
+<div class="container">
+      <div class="container-panel">
+        <div class="container-table-row">
+          <mat-form-field>
+            <input matInput type="text" [ngModel]="newComputer.name" (ngModelChange)="newComputer.name = $event"
+              value="{{ newComputer.name }}" placeholder="computer name" />
+          </mat-form-field>
+        </div>
+  
+        <div class="container-dateTime container-table-row">
+          <mat-form-field>
+            <input matInput type="date" [ngModel]="newComputer.introducedDate"
+              (ngModelChange)="newComputer.introducedDate = $event" value="{{ newComputer.introducedDate }}" />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput type="time" [ngModel]="newComputer.introducedHour"
+              (ngModelChange)="newComputer.introducedHour = $event" value="{{ newComputer.introducedHour }}" />
+          </mat-form-field>
+        </div>
+  
+        <div class="container-dateTime container-table-row">
+          <mat-form-field>
+            <input matInput type="date" [ngModel]="newComputer.discontinuedDate"
+              (ngModelChange)="newComputer.discontinuedDate = $event" value="{{ newComputer.discontinuedDate }}" />
+          </mat-form-field>
+  
+          <mat-form-field>
+            <input matInput type="time" [ngModel]="newComputer.discontinuedHour"
+              (ngModelChange)="newComputer.discontinuedHour = $event" value="{{ newComputer.discontinuedHour }}" />
+          </mat-form-field>
+        </div>
+  
+        <div class="container-table-row">
+            <mat-form-field [formGroup]="companyForm">
+              <mat-label>Company</mat-label>
+    
+              <mat-select formControlName="companyControl" [ngModel]="newComputer.company.name"
+                (ngModelChange)="newComputer.company.name = $event">
+                <mat-option *ngFor="let company of companies" value="{{ company.name }}">{{ company.name }}</mat-option>
+              </mat-select>
+    
+            </mat-form-field>
+          </div>
+  
+      </div>
+  
+    <div class="container-button container-button-bottom">
+      <button mat-button (click)="add()">Add</button>
+      <button mat-button (click)="invExpanded()">Cancel</button>
+    </div>
+  
+  </div>

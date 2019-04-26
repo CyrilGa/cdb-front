@@ -9,37 +9,19 @@
 }
 
 .container-panel{
-    background-color: inherit;
-
-    box-shadow: none;
-}
-
-.container-header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    background-color: inherit;
+    width: 80%;
 
-    border-radius: 5px;
-    padding: 0 0;
+    box-shadow: none;
 }
 
 .container-table-row{
     text-align: center;
     align-self: baseline;
     width: 25%;
-}
-
-span{
-    color: black;
-    font-size: 1.05em;
-    font-weight: 500;
-}
-
-.container-body{
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
 }
 
 .container-dateTime :nth-child(1){
