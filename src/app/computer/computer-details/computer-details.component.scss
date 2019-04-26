@@ -46,8 +46,13 @@ span{
 
 .container-body{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     padding-top: 10px;
+}
+
+.container-body-child{
+    width: 25%;
 }
 
 .container-dateTime :nth-child(1){

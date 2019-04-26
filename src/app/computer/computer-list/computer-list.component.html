@@ -1,26 +1,24 @@
 <app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
 
-<div id="computer-table">
 
-  <div class="container">
-    <div>
-      <span [translate]="'topboard.nameComputer'"></span>
-    </div>
-    <div>
-      <span [translate]="'topboard.introducedComputer'"></span>
-    </div>
-    <div>
-      <span [translate]="'topboard.discontinuedComputer'"></span>
-    </div>
-    <div>
-      <span [translate]="'topboard.companyNameComputer'"></span>
-    </div>
-    <div *ngIf="(getUserRole() === 'ADMIN') || (getUserRole() === 'USER')">
-      <button mat-raised-button color="accent" (click)="toggleAdd()">Add</button>
-    </div>
+<div class="container">
+  <div>
+    <span [translate]="'topboard.nameComputer'"></span>
   </div>
-
+  <div>
+    <span [translate]="'topboard.introducedComputer'"></span>
+  </div>
+  <div>
+    <span [translate]="'topboard.discontinuedComputer'"></span>
+  </div>
+  <div>
+    <span [translate]="'topboard.companyNameComputer'"></span>
+  </div>
+  <div *ngIf="(getUserRole() === 'ADMIN') || (getUserRole() === 'USER')">
+    <button mat-raised-button color="accent" (click)="toggleAdd()">Add</button>
+  </div>
 </div>
+
 
 <div id="computers">
   <app-computer-form *ngIf="isAddToggled" (cancelAdd)="toggleAdd()" (addComputer)="addComputer($event)"

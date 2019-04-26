@@ -18,14 +18,14 @@
     </mat-expansion-panel-header>
 
     <div class="container-body">
-      <div>
+      <div class="container-body-child">
         <mat-form-field>
           <input matInput type="text" [ngModel]="computerEdit.name" (ngModelChange)="computerEdit.name = $event"
             value="{{ computerEdit.name }}" placeholder="computer name" />
         </mat-form-field>
       </div>
 
-      <div class="container-dateTime">
+      <div class="container-dateTime container-body-child">
         <mat-form-field>
           <input matInput type="date" [ngModel]="computerEdit.introducedDate"
             (ngModelChange)="computerEdit.introducedDate = $event" value="{{ computerEdit.introducedDate }}" />
@@ -37,7 +37,7 @@
         </mat-form-field>
       </div>
 
-      <div class="container-dateTime">
+      <div class="container-dateTime container-body-child">
         <mat-form-field>
           <input matInput type="date" [ngModel]="computerEdit.discontinuedDate"
             (ngModelChange)="computerEdit.discontinuedDate = $event" value="{{ computerEdit.discontinuedDate }}" />
@@ -49,7 +49,7 @@
         </mat-form-field>
       </div>
 
-      <div>
+      <div class="container-body-child">
         <mat-form-field [formGroup]="companyForm">
           <mat-label>Company</mat-label>
 
