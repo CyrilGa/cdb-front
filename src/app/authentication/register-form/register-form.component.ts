@@ -33,7 +33,7 @@ export class RegisterFormComponent implements OnInit {
     if (this.password === this.passwordRepeat) {
       this.apiService.register(this.username, this.password).subscribe(response => {
           this.snackBar.openFromComponent(SnackbarComponent, {
-            duration: 5 * 1000,
+            duration: 3 * 1000,
             panelClass: ['snackbar', 'snackbar-success'],
             data: 'Successfully registered'
           });
@@ -54,7 +54,7 @@ export class RegisterFormComponent implements OnInit {
           }
 
           this.snackBar.openFromComponent(SnackbarComponent, {
-            duration: 5 * 1000,
+            duration: 3 * 1000,
             panelClass: ['snackbar', 'snackbar-error'],
             data: errorMessage
           });

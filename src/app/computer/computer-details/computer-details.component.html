@@ -1,6 +1,6 @@
 <div class="container">
 
-  <mat-expansion-panel [ngClass]="(getUserRole() === 'ADMIN')? 'fal fa-cogs fa-5x blink':'fal fa-cogs fa-5x'"="container-panel" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
+  <mat-expansion-panel [ngClass]="isLogin() ? 'container-panel' : 'container-panel-logout'" [expanded]="isExpanded" hideToggle="true" disabled="true" #edit>
     <mat-expansion-panel-header class="container-header" *ngIf="!edit.expanded">
       <div class="container-table-row">
         <span>{{computer.name}}</span>

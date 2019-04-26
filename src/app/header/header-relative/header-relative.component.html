@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="title-symbol">
+  <div class="title-symbol" [routerLink]="['/']">
     <a [routerLink]="['/']">
       <img src="../../assets/logo-new.png" alt=""/>
     </a>
@@ -24,10 +24,10 @@
 
     <div class="container-button" *ngIf="isLoggedIn()">
 
-        <button mat-icon-button>
+        <button mat-icon-button class="flags flagsFr" (click)="changeLanguage('fr')">
             <mat-icon><img src="../../assets/img/frflag.png" alt="FR Flag"/></mat-icon>
         </button>
-        <button mat-icon-button>
+        <button mat-icon-button class="flags flagsEn" (click)="changeLanguage('en')">
             <mat-icon><img src="../../assets/img/engflag.png" alt="FR Flag"/></mat-icon>
         </button>
 

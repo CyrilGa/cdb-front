@@ -2,7 +2,9 @@
 
     <div class="container-search">
         <div>
-            <button mat-mini-fab (click)="doSearch()" color="accent"><i class="material-icons">search</i></button>
+            <button mat-mini-fab (click)="doSearch()" color="accent">
+                <i class="material-icons">search</i>
+            </button>
         </div>
         <div>
             <mat-form-field>
@@ -16,12 +18,6 @@
 
         <mat-form-field class="selectField">
             <mat-label style="color: black;"><span [translate]="'sort.selection'"></span></mat-label>
-            <!-- <select [(value)]="sortName">
-                <option value="computerName" translate>sort.nameComputer</option>
-                <option value="introduced" translate>sort.introducedComputer</option>
-                <option value="discontinued" translate>sort.discontinuedComputer</option>
-                <option value="companyName" translate>sort.companyNameComputer</option>
-            </select> -->
             <mat-select [(value)]="sortName">
                 <mat-option value="computerName"><span [translate]="'sort.nameComputer'"></span></mat-option>
                 <mat-option value="introduced"><span [translate]="'sort.introducedComputer'"></span></mat-option>

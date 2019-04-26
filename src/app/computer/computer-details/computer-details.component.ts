@@ -6,6 +6,8 @@ import { SessionService } from '../../authentication/session.service';
 import { ComputerEdit } from '../model/computerEdit.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-computer-details',
@@ -34,7 +36,10 @@ export class ComputerDetailsComponent {
 
   companyForm: FormGroup;
 
-  constructor(private api: ApiService, private sessionService: SessionService, private formBuilder: FormBuilder) { };
+  constructor(private api: ApiService,
+    private sessionService: SessionService,
+    private formBuilder: FormBuilder,
+    private snackBar: MatSnackBar) { };
 
   ngOnInit() {
     this.companyForm = this.formBuilder.group({
@@ -119,6 +124,11 @@ export class ComputerDetailsComponent {
     setTimeout(() => this.saveComputer.emit(computer), 1000);
 
 
+  }
+
+
+  isLogin(){
+    return this.sessionService.getUserToken() !== null;
   }
 
   

@@ -1,6 +1,7 @@
 <app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
 
 <div id="computer-table">
+
   <div class="container">
     <div>
       <span [translate]="'topboard.nameComputer'"></span>
@@ -14,26 +15,18 @@
     <div>
       <span [translate]="'topboard.companyNameComputer'"></span>
     </div>
-    <div *ngIf="(getUserRole() === 'ADMIN')">
+    <div *ngIf="(getUserRole() === 'ADMIN') || (getUserRole() === 'USER')">
+      <button mat-raised-button color="accent" (click)="toggleAdd()">Add</button>
     </div>
   </div>
-  <div>
-    <span>INTRODUCED DATE</span>
-  </div>
-  <div>
-    <span>DISCONTINUED DATE</span>
-  </div>
-  <div>
-    <span>COMPANY NAME</span>
-  </div>
-  <div *ngIf="(getUserRole() === 'ADMIN') || (getUserRole() === 'USER')">
-    <button mat-raised-button color="accent" (click)="toggleAdd()">Add</button>
-  </div>
+
 </div>
 
 <div id="computers">
-  <app-computer-form *ngIf="isAddToggled" (cancelAdd)="toggleAdd()" (addComputer)="addComputer($event)" [companies]="companies"></app-computer-form>
+  <app-computer-form *ngIf="isAddToggled" (cancelAdd)="toggleAdd()" (addComputer)="addComputer($event)"
+    [companies]="companies"></app-computer-form>
   <app-computer-details *ngFor="let computer of computers" [computer]="computer"
     (deleteComputer)="deleteComputer($event)" (saveComputer)="saveComputer($event)"></app-computer-details>
 </div>
-<app-footer-fix [maxPage]="maxPage" [currentPage]="currentPage" (changePage)="changePage($event)" (changeNumberOfElements)="changeElements($event)"></app-footer-fix>
+<app-footer-fix [maxPage]="maxPage" [currentPage]="currentPage" (changePage)="changePage($event)"
+  (changeNumberOfElements)="changeElements($event)"></app-footer-fix>

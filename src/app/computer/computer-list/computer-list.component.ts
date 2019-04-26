@@ -29,6 +29,8 @@ export class ComputerListComponent implements OnInit {
 
   companies: Company[];
 
+  duration = 3000;
+
   constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
   }
 
@@ -85,13 +87,19 @@ export class ComputerListComponent implements OnInit {
     this.api.deleteComputer($event).subscribe(
       response => {
         this.snackBar.openFromComponent(SnackbarComponent, {
-          duration: 5 * 1000,
+          duration: this.duration,
           panelClass: ['snackbar', 'snackbar-success'],
-          data: 'Successfully deleted computer'
+          data: 'Computer successfully deleted '
         });
         this.getComputers();
       },
-      error => console.log(error)
+      error => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: this.duration,
+          panelClass: ['snackbar', 'snackbar-error'],
+          data: "Computer not deleted"
+        });
+      }
     );
   }
 
@@ -101,8 +109,21 @@ export class ComputerListComponent implements OnInit {
 
   saveComputer($event) {
     this.api.editComputer($event).subscribe(
-      () => this.getComputers(),
-      error => console.log(error)
+      () => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: this.duration,
+          panelClass: ['snackbar', 'snackbar-success'],
+          data: 'Computer successfully updated'
+        });
+        this.getComputers()
+      },
+      error => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: this.duration,
+          panelClass: ['snackbar', 'snackbar-error'],
+          data: 'Computer not updated'
+        });
+      }
     );
   }
 
@@ -120,8 +141,21 @@ export class ComputerListComponent implements OnInit {
 
   addComputer($event){
     this.api.postComputer($event).subscribe(
-      () => this.getComputers(),
-      error => console.log(error)
+      () => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: this.duration,
+          panelClass: ['snackbar', 'snackbar-success'],
+          data: 'Computer successfully created'
+        });
+        this.getComputers()
+      },
+      error => {
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          duration: this.duration,
+          panelClass: ['snackbar', 'snackbar-error'],
+          data: 'Computer not created'
+        });
+      }
     );
   }
 }

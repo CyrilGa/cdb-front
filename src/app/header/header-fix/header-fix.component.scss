@@ -3,7 +3,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 60px;
 
     font-family: 'Courier New', Courier, monospace;
     padding: 0 16px;
@@ -23,6 +23,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: baseline;
+    align-content: center;
 }
 
 
@@ -40,10 +41,7 @@
 .selectField {
     margin-right: 30px;
 }
-.fixed {
-    line-height: 70px;
-    float: left;
-}
+
 .container-sort :nth-child(2){
     margin-left: 5px;
     margin-right: 5px;
@@ -57,4 +55,3 @@
 .container-sort :nth-child(n) :nth-child(n) {
     margin-right: 0;
 }
-
