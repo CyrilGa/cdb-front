@@ -13,16 +13,16 @@
 	"sort": {
 		"selection": "Sélection",
 		"nameComputer": "Nom",
-		"introducedComputer": "Debut",
-		"discontinuedComputer": "Arret",
-		"companyNameComputer": "Nom du Fabriquant"
+		"introducedComputer": "Date de début",
+		"discontinuedComputer": "Date d'arrêt",
+		"companyNameComputer": "Nom du fabriquant"
 	},
 	"copyright": "Copyright || Touts Droits reserves",
 	"topboard": {
 		"nameComputer": "NOM DE L'ORDINATEUR",
 		"introducedComputer": "DATE DE DEBUT",
 		"discontinuedComputer": "DATE DE FIN",
-		"companyNameComputer": "NOM DE L'ENTREPRISE"
+		"companyNameComputer": "NOM DU FABRIQUANT"
 	},
 	"auth": {
 		"login": "Connexion",
