@@ -23,14 +23,12 @@ export class HeaderFixComponent implements OnInit {
 
   ngOnInit() {
     this.isAsc = true;
-  }
-
-  ngAfterViewChecked() {
-    this.cd.detectChanges();
+    this.sortName = 'id';
   }
 
   toggleAsc() {
     this.isAsc = !this.isAsc;
+    this.doSort();
   }
 
   doSearch() {
@@ -40,7 +38,7 @@ export class HeaderFixComponent implements OnInit {
   doSort() {
     this.sort.emit({
       sortName: this.sortName,
-      sortType: this.isAsc ? "ASC" : "DESC"
+      sortType: this.isAsc ? 'ASC' : 'DESC'
     });
   }
 

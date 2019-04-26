@@ -2,23 +2,21 @@
 
     <div class="container-search">
         <div>
-            <button mat-mini-fab (click)="doSearch()" color="accent">
+            <button type="submit" mat-mini-fab (click)="doSearch()" color="accent">
                 <i class="material-icons">search</i>
             </button>
         </div>
         <div>
             <mat-form-field>
-                <input matInput class="search" placeholder="{{'searchField' | translate}}" (change)="changeSearchName($event)">
+                <input matInput class="search" placeholder="{{'searchField' | translate}}" (change)="changeSearchName($event)" (keyup.enter)="doSearch()">
             </mat-form-field>
         </div>
     </div>
 
     <div class="container-sort">
-        <button (click)="doSort()" mat-mini-fab color="accent"><i class="material-icons">swap_vert</i></button>
-
         <mat-form-field class="selectField">
             <mat-label style="color: black;"><span [translate]="'sort.selection'"></span></mat-label>
-            <mat-select [(value)]="sortName">
+            <mat-select [(value)]="sortName" (selectionChange)="doSort()">
                 <mat-option value="computerName"><span [translate]="'sort.nameComputer'"></span></mat-option>
                 <mat-option value="introduced"><span [translate]="'sort.introducedComputer'"></span></mat-option>
                 <mat-option value="discontinued"><span [translate]="'sort.discontinuedComputer'"></span></mat-option>
@@ -26,7 +24,7 @@
             </mat-select>
         </mat-form-field>
 
-        <mat-slide-toggle (click)="toggleAsc()">ASC</mat-slide-toggle>
+        <mat-slide-toggle (change)="toggleAsc()">ASC</mat-slide-toggle>
     </div>
 
 </div>
