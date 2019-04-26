@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { SessionService } from '../../authentication/session.service';
 import { ComputerEdit } from '../model/computerEdit.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-computer-details',

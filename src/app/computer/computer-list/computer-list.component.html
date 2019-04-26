@@ -1,8 +1,21 @@
 <app-header-fix (sort)="changeSort($event)" (search)="changeSearch($event)"></app-header-fix>
 
-<div class="container">
-  <div>
-    <span>COMPUTER NAME</span>
+<div id="computer-table">
+  <div class="container">
+    <div>
+      <span [translate]="'topboard.nameComputer'"></span>
+    </div>
+    <div>
+      <span [translate]="'topboard.introducedComputer'"></span>
+    </div>
+    <div>
+      <span [translate]="'topboard.discontinuedComputer'"></span>
+    </div>
+    <div>
+      <span [translate]="'topboard.companyNameComputer'"></span>
+    </div>
+    <div *ngIf="(getUserRole() === 'ADMIN')">
+    </div>
   </div>
   <div>
     <span>INTRODUCED DATE</span>

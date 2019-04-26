@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, Output} from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import {ApiService} from '../../service/api.service';
 import {Router} from '@angular/router';
 import {SessionService} from '../session.service';
@@ -17,7 +18,8 @@ export class LoginFormComponent implements OnInit {
   constructor(private snackBar: MatSnackBar,
               private apiService: ApiService,
               private sessionService: SessionService,
-              private router: Router) {
+              private router: Router,
+              private translate: TranslateService) {
   }
 
   ngOnInit() {

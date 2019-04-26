@@ -8,14 +8,32 @@
 
 
   <div>
+ 
     <div class="container-button" *ngIf="!isLoggedIn()">
-      <button [routerLink]="['/login']" class="login" mat-raised-button color="primary">Login</button>
-      <button [routerLink]="['/register']" class="signup" mat-raised-button color="accent">Signup</button>
+      
+      <button mat-icon-button class="flags flagsFr" (click)="changeLanguage('fr')">
+          <mat-icon><img src="../../assets/img/frflag.png" alt="FR Flag"/></mat-icon>
+      </button>
+      <button mat-icon-button class="flags flagsEn" (click)="changeLanguage('en')">
+          <mat-icon><img src="../../assets/img/engflag.png" alt="FR Flag"/></mat-icon>
+      </button>
+
+      <button [routerLink]="['/login']" class="login" mat-raised-button color="primary">{{ 'button.login' | translate }}</button>
+      <button [routerLink]="['/register']" class="signup" mat-raised-button color="accent">{{ 'button.signup' | translate }}</button>
     </div>
 
     <div class="container-button" *ngIf="isLoggedIn()">
+
+        <button mat-icon-button>
+            <mat-icon><img src="../../assets/img/frflag.png" alt="FR Flag"/></mat-icon>
+        </button>
+        <button mat-icon-button>
+            <mat-icon><img src="../../assets/img/engflag.png" alt="FR Flag"/></mat-icon>
+        </button>
+
       <button (click)="logout();" class="login" mat-raised-button color="accent">Logout</button>
     </div>
   </div>
+
 
 </div>

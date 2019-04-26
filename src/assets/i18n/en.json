@@ -1,0 +1,29 @@
+{
+	"welcomeUser": "Welcome User",
+	"button": {
+		"login": "Login",
+		"signup": "Signup",
+		"edit": "Edit",
+		"delete": "Delete"
+	},
+	"searchField": "search",
+	"sort": {
+		"selection": "Selection",
+		"nameComputer": "Name",
+		"introducedComputer": "Introduced",
+		"discontinuedComputer": "Discontinued",
+		"companyNameComputer": "Company Name"
+	},
+	"copyright": "Copyright || All rights reserved",
+	"topboard": {
+		"nameComputer": "COMPUTER NAME",
+		"introducedComputer": "INTRODUCED DATE",
+		"discontinuedComputer": "DISCONTINUED DATE",
+		"companyNameComputer": "COMPANY NAME"
+	},
+	"auth": {
+		"login": "Login",
+		"username": "username",
+		"password": "password"
+	}
+}

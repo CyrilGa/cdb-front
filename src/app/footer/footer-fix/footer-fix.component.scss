@@ -2,12 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-height: 100px;
+  height: 30px;
 
   padding-top: 20px;
   padding-bottom: 20px;
 
   position: sticky;
+  position: -webkit-sticky;
   bottom: 0;
 
   background-color: #FFFFFF;

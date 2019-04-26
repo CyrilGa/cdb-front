@@ -43,10 +43,20 @@ export class RegisterFormComponent implements OnInit {
           this.passwordRepeat = '';
         },
         error => {
+          let errorMessage = '';
+          switch (error.error.messsage) {
+            case 'ValidationException':
+              errorMessage = 'The field sizes must be > 2';
+              break;
+            case 'UpdateException':
+              errorMessage = 'The username is already taken';
+              break;
+          }
+
           this.snackBar.openFromComponent(SnackbarComponent, {
             duration: 5 * 1000,
             panelClass: ['snackbar', 'snackbar-error'],
-            data: 'An error happened'
+            data: errorMessage
           });
         });
     }
