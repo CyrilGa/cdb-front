@@ -2,10 +2,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 30px;
 
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
 
   position: sticky;
   position: -webkit-sticky;
@@ -15,11 +15,25 @@
   box-shadow: 0 -4px 4px -2px #303030;
 }
 
-.navigation-links {
-  margin: auto;
+// .footer-fix :nth-child(n){
+//   width: 33%;
+// }
+
+.navigation-links{
+  width: 33%;
+  text-align: center
 }
 
-.page-size-selector {
-  position: absolute;
-  right: 20px;
+.elements-links{
+  // -right: 20px;
+  width: 33%;
+  text-align: center
+}
+
+.filler{
+  width: 33%;
+}
+
+.button-disabled{
+  pointer-events: none;
 }

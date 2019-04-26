@@ -66,13 +66,13 @@
   </mat-expansion-panel>
 
   <div class="container-button" *ngIf="!edit.expanded && (getUserRole() === 'ADMIN')">
-    <button mat-button (click)="onEdit(); invExpanded()">Edit
-    </button>
-    <button mat-button (click)="delete()">Delete</button>
+    <button mat-button (click)="onEdit(); invExpanded()">{{ 'button.edit' | translate }}</button>
+    <button mat-button *ngIf="!isConfirmDelete" (click)="confirmDelete()">{{ 'button.delete' | translate }}</button>
+    <button mat-button *ngIf="isConfirmDelete" (click)="delete()">{{ 'button.confirm' | translate }}</button>
   </div>
   <div class="container-button container-button-bottom" *ngIf="edit.expanded &&(getUserRole() === 'ADMIN')">
-    <button mat-button (click)="save()">Save</button>
-    <button mat-button (click)=" invExpanded()">Cancel</button>
+    <button mat-button (click)="save()">{{ 'button.save' | translate }}</button>
+    <button mat-button (click)=" invExpanded()">{{ 'button.cancel' | translate }}</button>
   </div>
 
 </div>

@@ -25,8 +25,9 @@
 <div id="computers">
   <app-computer-form *ngIf="isAddToggled" (cancelAdd)="toggleAdd()" (addComputer)="addComputer($event)"
     [companies]="companies"></app-computer-form>
-  <app-computer-details *ngFor="let computer of computers" [computer]="computer"
-    (deleteComputer)="deleteComputer($event)" (saveComputer)="saveComputer($event)"></app-computer-details>
+  <app-computer-details *ngFor="let computer of computers" [computer]="computer" [idOnEdit]="idOnEdit"
+    (deleteComputer)="deleteComputer($event)" (saveComputer)="saveComputer($event)"
+    (editComputer)="editComputer($event)"></app-computer-details>
 </div>
 <app-footer-fix [maxPage]="maxPage" [currentPage]="currentPage" (changePage)="changePage($event)"
   (changeNumberOfElements)="changeElements($event)"></app-footer-fix>

@@ -31,6 +31,8 @@ export class ComputerListComponent implements OnInit {
 
   duration = 3000;
 
+  idOnEdit = -1;
+
   constructor(private api: ApiService, private sessionService: SessionService, private snackBar: MatSnackBar) {
   }
 
@@ -84,6 +86,8 @@ export class ComputerListComponent implements OnInit {
   }
 
   deleteComputer($event) {
+    this.computers = this.computers.filter(computer => computer.id !== $event)
+
     this.api.deleteComputer($event).subscribe(
       response => {
         this.snackBar.openFromComponent(SnackbarComponent, {
@@ -99,6 +103,7 @@ export class ComputerListComponent implements OnInit {
           panelClass: ['snackbar', 'snackbar-error'],
           data: "Computer not deleted"
         });
+        this.getComputers();
       }
     );
   }
@@ -115,7 +120,7 @@ export class ComputerListComponent implements OnInit {
           panelClass: ['snackbar', 'snackbar-success'],
           data: 'Computer successfully updated'
         });
-        this.getComputers()
+        this.getComputers();
       },
       error => {
         this.snackBar.openFromComponent(SnackbarComponent, {
@@ -123,6 +128,7 @@ export class ComputerListComponent implements OnInit {
           panelClass: ['snackbar', 'snackbar-error'],
           data: 'Computer not updated'
         });
+        this.getComputers();
       }
     );
   }
@@ -155,7 +161,13 @@ export class ComputerListComponent implements OnInit {
           panelClass: ['snackbar', 'snackbar-error'],
           data: 'Computer not created'
         });
+        this.getComputers();
       }
     );
   }
+
+  editComputer($event){
+    this.idOnEdit = $event;
+  }
+
 }

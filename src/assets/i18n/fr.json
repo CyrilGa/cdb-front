@@ -1,10 +1,13 @@
 {
-	"welcomeUser": "Bienvenue Utilisateur",
+	"welcomeUser": "Bienvenue",
 	"button": {
 		"login": "Connexion",
 		"signup": "Inscription",
 		"edit": "Modifier",
-		"delete": "Supprimer"
+		"delete": "Supprimer",
+		"save": "Sauvegarder",
+		"cancel": "Annuler",
+		"confirm": "Confirmer"
 	},
 	"searchField": "recherche",
 	"sort": {
@@ -12,7 +15,7 @@
 		"nameComputer": "Nom",
 		"introducedComputer": "Debut",
 		"discontinuedComputer": "Arret",
-		"companyNameComputer": "Nom de l'Entreprise"
+		"companyNameComputer": "Nom du Fabriquant"
 	},
 	"copyright": "Copyright || Touts Droits reserves",
 	"topboard": {

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { Computer } from '../model/computer.model';
 import { Company } from '../model/company.model';
 import { ApiService } from 'src/app/service/api.service';
@@ -6,7 +6,6 @@ import { SessionService } from '../../authentication/session.service';
 import { ComputerEdit } from '../model/computerEdit.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import {SnackbarComponent} from '../../custom-material/snackbar/snackbar.component';
 import { MatSnackBar } from '@angular/material';
 
 @Component({
@@ -34,12 +33,13 @@ export class ComputerDetailsComponent {
 
   isExpanded = false;
 
+  isConfirmDelete = false;
+
   companyForm: FormGroup;
 
   constructor(private api: ApiService,
     private sessionService: SessionService,
-    private formBuilder: FormBuilder,
-    private snackBar: MatSnackBar) { };
+    private formBuilder: FormBuilder) { };
 
   ngOnInit() {
     this.companyForm = this.formBuilder.group({
@@ -50,9 +50,24 @@ export class ComputerDetailsComponent {
   @Input()
   computer: Computer;
 
+  @Input()
+  idOnEdit = -1;
+
+  memoIdOnEdit = -1;
+
   @Output() deleteComputer = new EventEmitter();
 
   @Output() saveComputer = new EventEmitter();
+
+  @Output() editComputer = new EventEmitter();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.memoIdOnEdit !== this.idOnEdit) {
+      if (this.idOnEdit !== this.computer.id) {
+        this.isExpanded = false;
+      }
+    }
+  }
 
   onEdit(computer: Computer): void {
     this.loadCompanies();
@@ -73,11 +88,16 @@ export class ComputerDetailsComponent {
   }
 
   delete() {
+    this.isConfirmDelete = false;
     this.deleteComputer.emit(this.computer.id);
   }
 
   invExpanded() {
+    this.isConfirmDelete = false;
     this.isExpanded = !this.isExpanded;
+    if (this.isExpanded) {
+      this.editComputer.emit(this.computer.id);
+    }
   }
 
   getUserRole(): string {
@@ -91,8 +111,8 @@ export class ComputerDetailsComponent {
       this.computerEdit.introducedDate
       + " "
       + this.computerEdit.introducedHour;
-    
-    if (introduced === " "){
+
+    if (introduced === " ") {
       introduced = "";
     }
 
@@ -101,9 +121,9 @@ export class ComputerDetailsComponent {
       + " "
       + this.computerEdit.discontinuedHour;
 
-      if (discontinued === " "){
-        discontinued = "";
-      }
+    if (discontinued === " ") {
+      discontinued = "";
+    }
 
     let companyName = this.computerEdit.company.name;
 
@@ -122,15 +142,18 @@ export class ComputerDetailsComponent {
     this.invExpanded();
 
     setTimeout(() => this.saveComputer.emit(computer), 1000);
-
-
   }
 
 
-  isLogin(){
+  isLogin() {
     return this.sessionService.getUserToken() !== null;
   }
 
-  
+  confirmDelete() {
+    this.isConfirmDelete = true;
+    setTimeout(() => this.isConfirmDelete = false, 3000);
+  }
+
+
 
 }

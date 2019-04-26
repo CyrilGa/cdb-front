@@ -4,7 +4,10 @@
 		"login": "Login",
 		"signup": "Signup",
 		"edit": "Edit",
-		"delete": "Delete"
+		"delete": "Delete",
+		"save": "Save",
+		"cancel": "Cancel",
+		"confirm": "Confirm"
 	},
 	"searchField": "search",
 	"sort": {

@@ -1,16 +1,24 @@
 <div class="footer-fix">
+  <div class="filler"></div>
   <div class="navigation-links">
     <button mat-stroked-button (click)="getFirstPage()"><i class="fas fa-angle-double-left"></i></button>
     <button mat-stroked-button (click)="getPreviousPage()"><i class="fas fa-angle-left"></i></button>
-    <button mat-stroked-button disabled="disabled">{{currentPage+1}}</button>
+    <button class="button-disabled" mat-stroked-button>{{currentPage+1}}</button>
     <button mat-stroked-button (click)="getNextPage()"><i class="fas fa-angle-right"></i></button>
     <button mat-stroked-button (click)="getLastPage()"><i class="fas fa-angle-double-right"></i></button>
   </div>
-
-  <mat-button-toggle-group class="page-size-selector" value="10">
-    <mat-button-toggle (click)="setNumberOfElements(10)" value="10">10</mat-button-toggle>
-    <mat-button-toggle (click)="setNumberOfElements(25)" value="25">25</mat-button-toggle>
-    <mat-button-toggle (click)="setNumberOfElements(50)" value="50">50</mat-button-toggle>
-    <mat-button-toggle (click)="setNumberOfElements(100)" value="100">100</mat-button-toggle>
-  </mat-button-toggle-group>
+  <!-- <div>
+    <mat-button-toggle-group class="page-size-selector" value="10">
+      <mat-button-toggle (click)="setNumberOfElements(10)" value="10">10</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(25)" value="25">25</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(50)" value="50">50</mat-button-toggle>
+      <mat-button-toggle (click)="setNumberOfElements(100)" value="100">100</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div> -->
+  <div class="elements-links">
+    <button mat-stroked-button class="elements-button" (click)="setNumberOfElements(10)" value="10">10</button>
+    <button mat-stroked-button (click)="setNumberOfElements(25)" value="25">25</button>
+    <button mat-stroked-button (click)="setNumberOfElements(50)" value="50">50</button>
+    <button mat-stroked-button (click)="setNumberOfElements(100)" value="100">100</button>
+  </div>
 </div>
